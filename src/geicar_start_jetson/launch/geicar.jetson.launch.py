@@ -89,6 +89,18 @@ def generate_launch_description():
         emulate_tty=True
     )
 
+    nav2_bringup_dir = get_package_share_directory("nav2_bringup")
+    nav2_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(nav2_bringup_dir, "launch", "bringup_launch.py")
+        ),
+        launch_arguments={
+            "slam": "False",
+            "map": "/home/jetson/ros2_ws/src/slam/gei_0.yaml",
+            "params_file": "/home/jetson/ros2_ws/src/slam/nav2.yaml",
+        }.items(),
+    )
+
     return LaunchDescription([
         usb_cam_node_exe,
         audio_capture_node,
@@ -96,4 +108,5 @@ def generate_launch_description():
         static_tf_scan,
         rf2o_launch,
         cmd_vel_to_motors,
+        nav2_launch,
     ])
