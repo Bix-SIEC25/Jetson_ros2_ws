@@ -1,5 +1,4 @@
 import cv2 as cv
-import cvzone
 import numpy as np
 from pyzbar import pyzbar as bar
 
@@ -33,7 +32,7 @@ class QRCodeNode(Node):
 
         self.get_logger().info('QRCode Node started! Subscribed to /image_raw/compressed')
 
-        # 🔹 confiance basée sur la stabilité (on la rend plus "gentille")
+        # 🔹 confiance basée sur la stabilité
         self.last_output = None
         self.stable_count = 0
         self.MAX_STABLE = 5   # nb de frames pour atteindre 100 % de stabilité
@@ -41,7 +40,6 @@ class QRCodeNode(Node):
         # 🔹 dernier identifiant détecté (Resident ID)
         self.current_resident_id = None
 
-    # callback appelé à chaque image reçue
     def image_callback(self, msg: CompressedImage):
         # --- 1) convertir le CompressedImage ROS2 -> image OpenCV (BGR) ---
         try:
@@ -54,7 +52,6 @@ class QRCodeNode(Node):
         if frame is None:
             return
 
-        # --- 2) ton ancien code de traitement de frame / QR code ---
         h, w = frame.shape[:2]
         frame_area = float(w * h)
 
@@ -79,9 +76,6 @@ class QRCodeNode(Node):
             box_area = float(bw * bh)
             area_ratio = box_area / frame_area
 
-            # Plus gentil avec les QR éloignés :
-            # - < 0.3% de l'image → 0
-            # - > 3% de l'image → 1
             AREA_MIN = 0.003
             AREA_MAX = 0.03
             area_score = (area_ratio - AREA_MIN) / (AREA_MAX - AREA_MIN)
@@ -96,9 +90,8 @@ class QRCodeNode(Node):
                 gray = cv.cvtColor(roi, cv.COLOR_BGR2GRAY)
                 var_lap = cv.Laplacian(gray, cv.CV_64F).var()
 
-                # Plus tolérant sur le flou
-                SHARP_MIN = 10.0    # très flou
-                SHARP_MAX = 120.0   # bien net
+                SHARP_MIN = 10.0
+                SHARP_MAX = 120.0
                 sharp_score = (var_lap - SHARP_MIN) / (SHARP_MAX - SHARP_MIN)
                 sharp_score = max(0.0, min(1.0, sharp_score))
             else:
@@ -111,14 +104,11 @@ class QRCodeNode(Node):
                 0.15 * sharp_score
             )
 
-            # Petit biais positif pour être "gentil"
             confidence = max(0.0, min(1.0, 0.1 + 0.9 * confidence_raw))
 
-            # 🔹 MET À JOUR LE DERNIER RESIDENT ID
             self.current_resident_id = output
 
-            # 🔹 Seuil de publication
-            CONF_THRESHOLD = 0.5   # 50 % de confiance
+            CONF_THRESHOLD = 0.5
             if confidence >= CONF_THRESHOLD:
                 msg_out = String()
                 msg_out.data = output
@@ -130,28 +120,40 @@ class QRCodeNode(Node):
                     f'current_resident_id={self.current_resident_id}'
                 )
                 
-                # the log message object
                 msg = LogEntry()
                 msg.level = LogEntry.TRACE
                 msg.sender = "QRNode"
-                msg.message = (
-                    f"{self.current_resident_id}"
-                )
-
+                msg.message = f"{self.current_resident_id}"
                 self.logger_publisher_.publish(msg)
 
-
         # === AFFICHAGE CAMÉRA ===
-        cvzone.putTextRect(
-            frame, 'QrCode Scanner',
-            (190, 30), scale=2, thickness=2, border=2
+
+        # Remplace:
+        # cvzone.putTextRect(frame, 'QrCode Scanner', (190, 30), scale=2, thickness=2, border=2)
+        cv.putText(
+            frame,
+            'QrCode Scanner',
+            (190, 30),
+            cv.FONT_HERSHEY_SIMPLEX,
+            0.9,
+            (0, 255, 0),
+            2,
+            cv.LINE_AA
         )
 
         if output:
             text = f"{output} ({confidence*100:.1f}%)"
-            cvzone.putTextRect(
-                frame, text,
-                (40, 300), scale=2, thickness=2, border=2
+            # Remplace:
+            # cvzone.putTextRect(frame, text, (40, 300), scale=2, thickness=2, border=2)
+            cv.putText(
+                frame,
+                text,
+                (40, 300),
+                cv.FONT_HERSHEY_SIMPLEX,
+                0.9,
+                (0, 255, 255),
+                2,
+                cv.LINE_AA
             )
 
         cv.imshow('frame', frame)

@@ -52,10 +52,10 @@ private:
       pwm = 50;
     } else if (!reverse) {
       // Avant : 50 -> 100
-      pwm = static_cast<uint8_t>(50.0 + 50.0 * v_norm)*1.4;
+      pwm = static_cast<uint8_t>(50.0 + 50.0 * v_norm);
     } else {
       // Arrière : 50 -> 0
-      pwm = static_cast<uint8_t>(50.0 - 50.0 * v_norm)*10.0;
+      pwm = static_cast<uint8_t>(50.0 - 50.0 * v_norm);
     }
 
     out.left_rear_pwm  = static_cast<int8_t>(pwm);

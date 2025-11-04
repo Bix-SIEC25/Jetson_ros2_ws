@@ -70,6 +70,7 @@ setup(
             'vocal_recognition = ai_pkg.vocal_recognition:main',
             'face_recognition_node = ai_pkg.face_recognition_node:main',
             'fall_detection = ai_pkg.fall_detection:main',
+            'Dialogue_recognition = ai_pkg.Dialogue_recognition:main',
         ],
     },
 )

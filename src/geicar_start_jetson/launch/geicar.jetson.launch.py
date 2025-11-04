@@ -27,7 +27,7 @@ def generate_launch_description():
         package="audio_common",
         executable="audio_capturer_node",
         parameters=[{
-            "device": 0
+            "device": -1
         }],
         remappings=[
             ('/audio', '/audio_mic')
