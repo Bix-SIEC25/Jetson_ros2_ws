@@ -56,3 +56,9 @@ log/
 
 # Freecad
 *.FCBak
+
+# Mac
+*.FCBak
+.DS_Store
+._.DS_Store
+.vscode
