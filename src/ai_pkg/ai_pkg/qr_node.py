@@ -6,6 +6,7 @@ from rclpy.node import Node
 
 from ai_pkg import state_flags as sf
 from ai_pkg.utils.logger import log
+from ai_pkg.utils.speaker import say
 
 
 class QRNode(Node):
@@ -24,6 +25,7 @@ class QRNode(Node):
 
         self._working = True
         log("[QR] Démarrage du travail (simulation scan QR)")
+        # say("Scanning for QR codes, please wait.")
 
         # --- travail simulé ---
         time.sleep(2.0)

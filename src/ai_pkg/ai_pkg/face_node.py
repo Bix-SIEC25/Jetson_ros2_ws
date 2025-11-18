@@ -20,6 +20,7 @@ from facenet_pytorch import MTCNN, InceptionResnetV1
 
 from ai_pkg import state_flags as sf
 from ai_pkg.utils.logger import log
+from ai_pkg.utils.speaker import say
 
 
 class FaceNode(Node):
@@ -102,6 +103,7 @@ class FaceNode(Node):
         if sf.face_active and not self._active:
             self._active = True
             log("[FACE] Activation par la FSM (sf.face_active = True)")
+            say("Face recognition activated")
         elif not sf.face_active and self._active:
             self._active = False
             log("[FACE] Désactivation par la FSM (sf.face_active = False)")
@@ -182,6 +184,7 @@ class FaceNode(Node):
         # 6. Si visage connu → signaler fin de travail à la FSM
         if name != "UNKNOWN":
             log("[FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False")
+            say(f"{name} has been detected")
             sf.face_active = False
             self.name = "UNKNOWN"
             # La FSM verra ce False et passera à l'état suivant

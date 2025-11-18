@@ -9,6 +9,9 @@ class State(Enum):
 # État global
 current_state = State.WAIT_CAR
 
+# Valeur de return
+return_val = 0
+
 # Ordres envoyés par la FSM (True = node doit travailler)
 wait_car_active = False
 qr_active = False

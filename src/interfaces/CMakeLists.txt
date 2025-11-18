@@ -24,10 +24,6 @@ set(msg_files
   "msg/LogEntry.msg"
 )
 
-# >>> actions <<<
-set(action_files
-  "action/ScenarioStep.action"
-)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}

@@ -3212,3 +3212,632 @@
 [2025-11-18 23:34:47] [DIALOG] Travail terminé → dialog_active = False
 [2025-11-18 23:34:48] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
 [2025-11-18 23:34:48] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 19:17:12] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-12-11 19:17:12] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 19:17:14] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 19:17:14] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 19:17:16] [QR] Travail terminé → qr_active = False
+[2025-12-11 19:17:18] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 19:17:18] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 19:17:26] [FACE] Face: Gaspar (0.82)
+[2025-12-11 19:17:26] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-11 19:17:26] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 19:17:26] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 19:17:28] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 19:17:28] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 19:17:31] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 19:17:32] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 19:17:32] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 19:21:40] [FSM] Start at state: WAIT_CAR
+[2025-12-11 19:21:40] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 19:21:40] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-12-11 19:21:40] [FACE] Device: cuda:0
+[2025-12-11 19:21:40] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-12-11 19:21:40] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-12-11 19:21:40] [FACE] Database loaded: 26 identities
+[2025-12-11 19:21:44] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-12-11 19:21:45] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 19:21:51] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-12-11 19:21:51] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 19:21:52] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 19:21:52] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 19:21:54] [QR] Travail terminé → qr_active = False
+[2025-12-11 19:21:56] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 19:21:57] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 19:22:04] [FACE] Face: Gaspar (0.84)
+[2025-12-11 19:22:04] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-11 19:22:04] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 19:22:04] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 19:22:04] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 19:22:04] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 19:22:07] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 19:22:08] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 19:22:08] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 19:22:08] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 19:22:10] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 19:22:10] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 19:22:12] [QR] Travail terminé → qr_active = False
+[2025-12-11 19:22:14] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 19:22:14] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 19:23:55] [FACE] Face: Gaspar (0.86)
+[2025-12-11 19:23:55] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-11 19:23:55] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 19:23:55] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 19:23:56] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 19:23:56] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 19:23:59] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 19:24:00] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 19:24:00] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 19:24:00] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 19:24:02] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 19:24:02] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 19:24:04] [QR] Travail terminé → qr_active = False
+[2025-12-11 19:24:06] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 19:24:06] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 19:25:19] [FACE] Face: UNKNOWN (0.98)
+[2025-12-11 19:25:19] [FACE] Face: UNKNOWN (1.08)
+[2025-12-11 19:25:19] [FACE] Face: UNKNOWN (1.12)
+[2025-12-11 19:25:19] [FACE] Face: UNKNOWN (1.14)
+[2025-12-11 19:25:20] [FACE] Face: UNKNOWN (0.98)
+[2025-12-11 19:25:20] [FACE] Face: Gaspar (0.90)
+[2025-12-11 19:25:20] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-11 19:25:20] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 19:25:20] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 19:25:20] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 19:25:20] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 19:25:23] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 19:25:24] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 19:25:24] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 19:25:45] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-12-11 19:25:45] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 19:25:46] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 19:25:46] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 19:25:48] [QR] Travail terminé → qr_active = False
+[2025-12-11 19:25:50] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 19:25:50] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 19:31:17] [FACE] Face: UNKNOWN (1.13)
+[2025-12-11 19:31:17] [FACE] Face: UNKNOWN (1.14)
+[2025-12-11 19:31:17] [FACE] Face: UNKNOWN (1.15)
+[2025-12-11 19:31:17] [FACE] Face: UNKNOWN (1.15)
+[2025-12-11 19:31:18] [FACE] Face: UNKNOWN (1.08)
+[2025-12-11 19:31:18] [FACE] Face: UNKNOWN (1.22)
+[2025-12-11 19:31:20] [FACE] Face: UNKNOWN (1.24)
+[2025-12-11 19:31:22] [FACE] Face: UNKNOWN (0.90)
+[2025-12-11 19:31:39] [FACE] Face: UNKNOWN (1.09)
+[2025-12-11 19:31:40] [FACE] Face: UNKNOWN (1.19)
+[2025-12-11 19:38:14] [FACE] Face: UNKNOWN (1.28)
+[2025-12-11 19:38:14] [FACE] Face: UNKNOWN (1.18)
+[2025-12-11 19:38:15] [FACE] Face: UNKNOWN (1.16)
+[2025-12-11 19:38:16] [FACE] Face: UNKNOWN (1.02)
+[2025-12-11 19:46:45] [FACE] Face: UNKNOWN (1.20)
+[2025-12-11 19:46:45] [FACE] Face: UNKNOWN (1.13)
+[2025-12-11 19:46:46] [FACE] Face: UNKNOWN (1.11)
+[2025-12-11 19:46:46] [FACE] Face: UNKNOWN (1.24)
+[2025-12-11 19:46:46] [FACE] Face: UNKNOWN (1.18)
+[2025-12-11 19:46:47] [FACE] Face: UNKNOWN (1.13)
+[2025-12-11 19:46:47] [FACE] Face: UNKNOWN (1.16)
+[2025-12-11 19:46:47] [FACE] Face: UNKNOWN (1.09)
+[2025-12-11 19:46:48] [FACE] Face: UNKNOWN (1.14)
+[2025-12-11 19:46:48] [FACE] Face: UNKNOWN (1.17)
+[2025-12-11 19:46:48] [FACE] Face: UNKNOWN (1.23)
+[2025-12-11 19:46:56] [FACE] Face: UNKNOWN (0.91)
+[2025-12-11 19:56:50] [FACE] Face: UNKNOWN (1.20)
+[2025-12-11 19:56:50] [FACE] Face: UNKNOWN (1.08)
+[2025-12-11 19:56:51] [FACE] Face: UNKNOWN (1.09)
+[2025-12-11 19:56:51] [FACE] Face: UNKNOWN (1.08)
+[2025-12-11 19:56:51] [FACE] Face: UNKNOWN (1.00)
+[2025-12-11 19:56:51] [FACE] Face: UNKNOWN (1.17)
+[2025-12-11 19:56:52] [FACE] Face: UNKNOWN (1.05)
+[2025-12-11 19:56:52] [FACE] Face: UNKNOWN (1.24)
+[2025-12-11 19:56:53] [FACE] Face: UNKNOWN (1.15)
+[2025-12-11 19:56:53] [FACE] Face: UNKNOWN (1.23)
+[2025-12-11 19:56:53] [FACE] Face: UNKNOWN (1.20)
+[2025-12-11 19:56:54] [FACE] Face: UNKNOWN (1.22)
+[2025-12-11 19:56:54] [FACE] Face: UNKNOWN (1.22)
+[2025-12-11 19:56:54] [FACE] Face: UNKNOWN (1.07)
+[2025-12-11 19:56:54] [FACE] Face: UNKNOWN (1.25)
+[2025-12-11 19:56:55] [FACE] Face: UNKNOWN (1.22)
+[2025-12-11 19:56:55] [FACE] Face: UNKNOWN (1.05)
+[2025-12-11 19:57:04] [FACE] Face: UNKNOWN (1.20)
+[2025-12-11 19:57:04] [FACE] Face: UNKNOWN (0.97)
+[2025-12-11 19:57:04] [FACE] Face: UNKNOWN (1.20)
+[2025-12-11 19:57:04] [FACE] Face: UNKNOWN (1.09)
+[2025-12-11 19:57:05] [FACE] Face: UNKNOWN (1.12)
+[2025-12-11 19:57:05] [FACE] Face: UNKNOWN (1.13)
+[2025-12-11 19:57:05] [FACE] Face: UNKNOWN (1.12)
+[2025-12-11 19:57:05] [FACE] Face: UNKNOWN (0.96)
+[2025-12-11 19:57:06] [FACE] Face: UNKNOWN (1.09)
+[2025-12-11 19:57:06] [FACE] Face: UNKNOWN (0.91)
+[2025-12-11 19:57:06] [FACE] Face: UNKNOWN (1.04)
+[2025-12-11 19:57:06] [FACE] Face: UNKNOWN (0.99)
+[2025-12-11 19:57:06] [FACE] Face: UNKNOWN (1.08)
+[2025-12-11 20:01:14] [FACE] Face: UNKNOWN (0.95)
+[2025-12-11 20:01:52] [FACE] Face: UNKNOWN (0.96)
+[2025-12-11 20:04:08] [FACE] Face: UNKNOWN (1.06)
+[2025-12-11 20:04:21] [FACE] Face: UNKNOWN (1.04)
+[2025-12-11 20:05:07] [FACE] Face: UNKNOWN (0.93)
+[2025-12-11 20:05:07] [FACE] Face: UNKNOWN (0.91)
+[2025-12-11 20:05:08] [FACE] Face: UNKNOWN (0.92)
+[2025-12-11 20:05:08] [FACE] Face: Giovanna (0.86)
+[2025-12-11 20:05:08] [FACE] LOG ENTRY envoyé pour Giovanna
+[2025-12-11 20:05:08] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 20:05:08] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 20:05:08] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 20:05:08] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 20:05:11] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 20:05:12] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 20:05:12] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 20:05:56] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-12-11 20:05:56] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 20:05:56] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 20:05:56] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 20:05:58] [QR] Travail terminé → qr_active = False
+[2025-12-11 20:06:00] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 20:06:00] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 20:06:06] [FACE] Face: UNKNOWN (1.06)
+[2025-12-11 20:06:06] [FACE] Face: UNKNOWN (1.11)
+[2025-12-11 20:06:08] [FACE] Face: UNKNOWN (0.97)
+[2025-12-11 20:06:13] [FACE] Face: UNKNOWN (1.00)
+[2025-12-11 20:06:13] [FACE] Face: UNKNOWN (1.14)
+[2025-12-11 20:06:21] [FACE] Face: UNKNOWN (0.99)
+[2025-12-11 20:06:29] [FACE] Face: UNKNOWN (1.14)
+[2025-12-11 20:06:31] [FACE] Face: UNKNOWN (0.92)
+[2025-12-11 20:06:31] [FACE] Face: UNKNOWN (1.08)
+[2025-12-11 20:06:31] [FACE] Face: Gaspar (0.86)
+[2025-12-11 20:06:31] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-11 20:06:31] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 20:06:31] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 20:06:32] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 20:06:32] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 20:06:35] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 20:06:36] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 20:06:36] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-11 20:17:24] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-12-11 20:17:24] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-11 20:17:24] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-11 20:17:24] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-11 20:17:26] [QR] Travail terminé → qr_active = False
+[2025-12-11 20:17:28] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-11 20:17:28] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-11 20:17:39] [FACE] Face: UNKNOWN (1.22)
+[2025-12-11 20:17:39] [FACE] Face: UNKNOWN (1.16)
+[2025-12-11 20:17:39] [FACE] Face: Gaspar (0.76)
+[2025-12-11 20:17:39] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-11 20:17:39] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-11 20:17:39] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-11 20:17:40] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-11 20:17:40] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-11 20:17:43] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-11 20:17:44] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-11 20:17:44] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:09:29] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:09:29] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:09:29] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:09:29] [FACE] Device: cuda:0
+[2025-11-18 22:09:29] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:09:29] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:09:29] [FACE] Database loaded: 26 identities
+[2025-11-18 22:09:32] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:09:32] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-16 15:09:21] [FSM] Start at state: WAIT_CAR
+[2025-12-16 15:09:21] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-16 15:09:21] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-12-16 15:09:21] [FACE] Device: cuda:0
+[2025-12-16 15:09:21] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-12-16 15:09:21] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-12-16 15:09:21] [FACE] Database loaded: 26 identities
+[2025-12-16 15:09:22] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-12-16 15:09:22] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-12-16 15:11:54] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-12-16 15:11:54] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-12-16 15:11:55] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-12-16 15:11:55] [QR] Démarrage du travail (simulation scan QR)
+[2025-12-16 15:11:57] [QR] Travail terminé → qr_active = False
+[2025-12-16 15:11:59] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-12-16 15:12:03] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-12-16 15:12:17] [FACE] Face: UNKNOWN (0.94)
+[2025-12-16 15:12:17] [FACE] Face: Gaspar (0.79)
+[2025-12-16 15:12:17] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-12-16 15:12:17] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-12-16 15:12:17] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-12-16 15:12:19] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-12-16 15:12:19] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-12-16 15:12:22] [DIALOG] Travail terminé → dialog_active = False
+[2025-12-16 15:12:23] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-12-16 15:12:23] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:11:34] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:11:34] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:11:34] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:11:35] [FACE] Device: cuda:0
+[2025-11-18 22:11:35] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:11:35] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:11:35] [FACE] Database loaded: 26 identities
+[2025-11-18 22:11:37] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:11:37] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:12:38] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:12:38] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:12:38] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:12:38] [FACE] Device: cuda:0
+[2025-11-18 22:12:38] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:12:38] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:12:38] [FACE] Database loaded: 26 identities
+[2025-11-18 22:12:39] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:12:39] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:14:55] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:14:55] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:14:55] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:14:55] [FACE] Device: cuda:0
+[2025-11-18 22:14:55] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:14:55] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:14:55] [FACE] Database loaded: 26 identities
+[2025-11-18 22:14:58] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:14:58] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:17:45] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:17:45] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:17:47] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:17:47] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:17:49] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:17:51] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:17:51] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:17:56] [FACE] Face: UNKNOWN (1.01)
+[2025-11-18 22:17:57] [FACE] Face: UNKNOWN (1.21)
+[2025-11-18 22:17:58] [FACE] Face: UNKNOWN (1.11)
+[2025-11-18 22:17:58] [FACE] Face: UNKNOWN (1.21)
+[2025-11-18 22:17:59] [FACE] Face: UNKNOWN (1.24)
+[2025-11-18 22:17:59] [FACE] Face: UNKNOWN (1.17)
+[2025-11-18 22:18:00] [FACE] Face: UNKNOWN (1.30)
+[2025-11-18 22:18:00] [FACE] Face: Hugo (0.80)
+[2025-11-18 22:18:00] [FACE] LOG ENTRY envoyé pour Hugo
+[2025-11-18 22:18:00] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:18:00] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:18:01] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:18:01] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:18:04] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:18:05] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:18:05] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:19:49] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:19:49] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:19:51] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:19:51] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:19:53] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:19:55] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:19:55] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:20:02] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:20:06] [FACE] Face: UNKNOWN (1.10)
+[2025-11-18 22:20:06] [FACE] Face: UNKNOWN (1.04)
+[2025-11-18 22:20:07] [FACE] Face: Hugo (0.87)
+[2025-11-18 22:20:07] [FACE] LOG ENTRY envoyé pour Hugo
+[2025-11-18 22:20:07] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:20:07] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:20:09] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:20:09] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:20:12] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:20:13] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:20:13] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:09:25] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:09:25] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:09:25] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:09:25] [FACE] Device: cuda:0
+[2025-11-18 22:09:25] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:09:25] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:09:25] [FACE] Database loaded: 26 identities
+[2025-11-18 22:09:28] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:09:28] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:13:20] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:13:21] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:13:23] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:13:23] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:13:25] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:13:27] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:13:32] [FACE] Face: UNKNOWN (1.01)
+[2025-11-18 22:13:32] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:13:33] [FACE] Face: UNKNOWN (0.96)
+[2025-11-18 22:13:34] [FACE] Face: UNKNOWN (0.99)
+[2025-11-18 22:13:34] [FACE] Face: UNKNOWN (0.90)
+[2025-11-18 22:13:35] [FACE] Face: Hugo (0.90)
+[2025-11-18 22:13:35] [FACE] LOG ENTRY envoyé pour Hugo
+[2025-11-18 22:13:35] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:13:35] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:13:37] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:13:37] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:13:40] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:13:41] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:13:41] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:15:34] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:15:34] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:15:35] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:15:35] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:15:37] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:15:39] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:15:39] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:15:48] [FACE] Face: Gaspar (0.87)
+[2025-11-18 22:15:48] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:15:48] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:15:48] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:15:49] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:15:49] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:15:52] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:15:53] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:15:53] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:29:20] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:29:20] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:29:20] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:29:20] [FACE] Device: cuda:0
+[2025-11-18 22:29:20] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:29:20] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:29:20] [FACE] Database loaded: 26 identities
+[2025-11-18 22:29:23] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:29:23] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:47:00] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:47:00] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:47:00] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:47:00] [FACE] Device: cuda:0
+[2025-11-18 22:47:00] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:47:00] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:47:00] [FACE] Database loaded: 26 identities
+[2025-11-18 22:47:01] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:47:01] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:47:24] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:47:24] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:47:26] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:47:26] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:47:26] TalkerNode initialisé
+[2025-11-18 22:47:26] [TTS]: envoi → 'Scanning for QR codes, please wait.'
+[2025-11-18 22:47:28] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:47:30] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:47:35] [FACE] Face: UNKNOWN (1.03)
+[2025-11-18 22:47:35] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:47:36] [FACE] Face: Gaspar (0.89)
+[2025-11-18 22:47:36] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:47:36] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:47:36] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:47:36] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:47:36] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:47:39] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:47:40] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:47:40] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:47:49] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:47:49] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:47:50] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:47:50] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:47:50] [TTS]: envoi → 'Scanning for QR codes, please wait.'
+[2025-11-18 22:47:52] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:47:54] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:47:55] [FACE] Face: UNKNOWN (0.95)
+[2025-11-18 22:47:55] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:47:55] [FACE] Face: UNKNOWN (0.97)
+[2025-11-18 22:47:55] [FACE] Face: UNKNOWN (0.96)
+[2025-11-18 22:47:55] [FACE] Face: UNKNOWN (0.91)
+[2025-11-18 22:47:56] [FACE] Face: UNKNOWN (0.92)
+[2025-11-18 22:47:56] [FACE] Face: Gaspar (0.86)
+[2025-11-18 22:47:56] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:47:56] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:47:56] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:47:56] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:47:56] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:47:59] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:48:00] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:48:00] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:48:03] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:48:03] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:48:04] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:48:04] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:48:04] [TTS]: envoi → 'Scanning for QR codes, please wait.'
+[2025-11-18 22:48:06] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:48:08] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:48:08] [FACE] Face: Gaspar (0.83)
+[2025-11-18 22:48:08] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:48:08] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:48:10] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:48:10] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:48:13] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:48:14] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:48:14] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:48:16] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:48:16] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:48:16] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:48:16] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:48:16] [TTS]: envoi → 'Scanning for QR codes, please wait.'
+[2025-11-18 22:48:18] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:48:20] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:48:21] [FACE] Face: UNKNOWN (1.07)
+[2025-11-18 22:48:21] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:48:21] [FACE] Face: UNKNOWN (1.02)
+[2025-11-18 22:48:21] [FACE] Face: UNKNOWN (1.14)
+[2025-11-18 22:48:21] [FACE] Face: UNKNOWN (1.17)
+[2025-11-18 22:48:21] [FACE] Face: UNKNOWN (1.02)
+[2025-11-18 22:48:22] [FACE] Face: Gaspar (0.87)
+[2025-11-18 22:48:22] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:48:22] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:48:22] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:48:22] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:48:22] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:48:25] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:48:26] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:48:26] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:54:23] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:54:23] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:54:24] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:54:24] [FACE] Device: cuda:0
+[2025-11-18 22:54:24] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:54:24] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:54:24] [FACE] Database loaded: 26 identities
+[2025-11-18 22:54:24] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:54:25] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 23:00:02] [FSM] Start at state: WAIT_CAR
+[2025-11-18 23:00:02] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 23:00:02] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 23:00:02] [FACE] Device: cuda:0
+[2025-11-18 23:00:02] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 23:00:02] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 23:00:02] [FACE] Database loaded: 26 identities
+[2025-11-18 23:00:03] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 23:00:03] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 23:02:06] [FSM] Start at state: WAIT_CAR
+[2025-11-18 23:02:06] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 23:02:06] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 23:02:06] [FACE] Device: cuda:0
+[2025-11-18 23:02:06] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 23:02:06] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 23:02:06] [FACE] Database loaded: 26 identities
+[2025-11-18 23:02:07] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 23:02:07] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:21:41] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:21:41] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:21:41] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:21:41] [FACE] Device: cuda:0
+[2025-11-18 22:21:41] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:21:41] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:21:41] [FACE] Database loaded: 26 identities
+[2025-11-18 22:21:44] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:21:44] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:30:36] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:30:36] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:30:36] TalkerNode initialisé
+[2025-11-18 22:30:36] [TTS]: envoi → 'The car has arrived'
+[2025-11-18 22:30:37] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:30:37] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:30:39] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:30:41] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:30:41] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:30:41] [TTS]: envoi → 'Face recognition activated'
+[2025-11-18 22:30:49] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:30:49] [FACE] Face: UNKNOWN (0.94)
+[2025-11-18 22:30:50] [FACE] Face: Gaspar (0.85)
+[2025-11-18 22:30:50] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:30:50] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:30:50] [TTS]: envoi → 'Gaspar has been detected'
+[2025-11-18 22:30:50] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:30:51] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:30:51] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:30:54] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:30:55] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:30:55] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:34:40] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:34:40] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:34:40] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:34:40] [FACE] Device: cuda:0
+[2025-11-18 22:34:40] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:34:40] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:34:40] [FACE] Database loaded: 26 identities
+[2025-11-18 22:34:41] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:34:41] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:48:54] [FSM] Start at state: WAIT_CAR
+[2025-11-18 22:48:54] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:48:54] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2025-11-18 22:48:55] [FACE] Device: cuda:0
+[2025-11-18 22:48:55] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2025-11-18 22:48:55] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2025-11-18 22:48:55] [FACE] Database loaded: 26 identities
+[2025-11-18 22:48:56] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2025-11-18 22:48:56] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:49:09] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:49:09] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:49:09] TalkerNode initialisé
+[2025-11-18 22:49:10] [TTS]: serveur /say indisponible (timeout)
+[2025-11-18 22:49:10] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:49:10] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:49:12] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:49:14] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:49:16] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:49:16] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:49:17] [TTS]: serveur /say indisponible (timeout)
+[2025-11-18 22:49:18] [FACE] Face: UNKNOWN (1.08)
+[2025-11-18 22:49:18] [FACE] Face: UNKNOWN (1.04)
+[2025-11-18 22:49:19] [FACE] Face: UNKNOWN (1.08)
+[2025-11-18 22:49:19] [FACE] Face: UNKNOWN (1.04)
+[2025-11-18 22:49:20] [FACE] Face: UNKNOWN (1.04)
+[2025-11-18 22:49:20] [FACE] Face: UNKNOWN (1.06)
+[2025-11-18 22:49:21] [FACE] Face: UNKNOWN (1.05)
+[2025-11-18 22:49:21] [FACE] Face: UNKNOWN (1.03)
+[2025-11-18 22:49:21] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:49:21] [FACE] Face: UNKNOWN (1.00)
+[2025-11-18 22:49:22] [FACE] Face: Gaspar (0.90)
+[2025-11-18 22:49:22] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:49:22] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:49:22] [TTS]: envoi → 'Gaspar has been detected'
+[2025-11-18 22:49:22] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:49:22] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:49:23] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:49:26] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:49:26] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:49:26] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:49:31] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:49:31] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:49:31] [TTS]: envoi → 'The car has arrived'
+[2025-11-18 22:49:32] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:49:32] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:49:34] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:49:36] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:49:37] [FACE] Face: UNKNOWN (1.02)
+[2025-11-18 22:49:37] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:49:37] [TTS]: envoi → 'Face recognition activated'
+[2025-11-18 22:49:37] [FACE] Face: UNKNOWN (0.92)
+[2025-11-18 22:49:38] [FACE] Face: UNKNOWN (1.05)
+[2025-11-18 22:49:38] [FACE] Face: UNKNOWN (1.02)
+[2025-11-18 22:49:39] [FACE] Face: UNKNOWN (0.99)
+[2025-11-18 22:49:39] [FACE] Face: UNKNOWN (1.01)
+[2025-11-18 22:49:39] [FACE] Face: UNKNOWN (0.99)
+[2025-11-18 22:49:39] [FACE] Face: UNKNOWN (0.95)
+[2025-11-18 22:49:40] [FACE] Face: UNKNOWN (0.96)
+[2025-11-18 22:49:40] [FACE] Face: Gaspar (0.85)
+[2025-11-18 22:49:40] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:49:40] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:49:40] [TTS]: envoi → 'Gaspar has been detected'
+[2025-11-18 22:49:40] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:49:40] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:49:41] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:49:44] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:49:44] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:49:44] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:50:55] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:50:55] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:50:55] [TTS]: envoi → 'The car has arrived'
+[2025-11-18 22:50:56] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:50:56] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:50:58] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:51:00] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:51:01] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:51:01] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:51:01] [TTS]: envoi → 'Face recognition activated'
+[2025-11-18 22:51:01] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:51:02] [FACE] Face: UNKNOWN (0.98)
+[2025-11-18 22:51:02] [FACE] Face: Gaspar (0.87)
+[2025-11-18 22:51:02] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:51:02] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:51:02] [TTS]: envoi → 'Gaspar has been detected'
+[2025-11-18 22:51:02] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:51:02] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:51:03] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:51:06] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:51:06] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:51:06] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2025-11-18 22:51:27] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2025-11-18 22:51:27] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2025-11-18 22:51:27] [TTS]: envoi → 'The car has arrived'
+[2025-11-18 22:51:28] [FSM] QR activé | (wait_car=False, qr=True, face=False, dialog=False)
+[2025-11-18 22:51:28] [QR] Démarrage du travail (simulation scan QR)
+[2025-11-18 22:51:30] [QR] Travail terminé → qr_active = False
+[2025-11-18 22:51:32] [FSM] FACE activé | (wait_car=False, qr=False, face=True, dialog=False)
+[2025-11-18 22:51:33] [FACE] Face: UNKNOWN (0.93)
+[2025-11-18 22:51:33] [FACE] Activation par la FSM (sf.face_active = True)
+[2025-11-18 22:51:33] [TTS]: envoi → 'Face recognition activated'
+[2025-11-18 22:51:33] [FACE] Face: UNKNOWN (0.95)
+[2025-11-18 22:51:33] [FACE] Face: UNKNOWN (1.04)
+[2025-11-18 22:51:34] [FACE] Face: UNKNOWN (0.97)
+[2025-11-18 22:51:34] [FACE] Face: UNKNOWN (1.11)
+[2025-11-18 22:51:34] [FACE] Face: UNKNOWN (1.10)
+[2025-11-18 22:51:35] [FACE] Face: UNKNOWN (1.09)
+[2025-11-18 22:51:35] [FACE] Face: UNKNOWN (1.03)
+[2025-11-18 22:51:35] [FACE] Face: UNKNOWN (1.02)
+[2025-11-18 22:51:36] [FACE] Face: UNKNOWN (0.91)
+[2025-11-18 22:51:36] [FACE] Face: Gaspar (0.76)
+[2025-11-18 22:51:36] [FACE] LOG ENTRY envoyé pour Gaspar
+[2025-11-18 22:51:36] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2025-11-18 22:51:36] [TTS]: envoi → 'Gaspar has been detected'
+[2025-11-18 22:51:36] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2025-11-18 22:51:36] [FSM] DIALOG activé | (wait_car=False, qr=False, face=False, dialog=True)
+[2025-11-18 22:51:37] [DIALOG] Démarrage du travail (simulation dialogue)
+[2025-11-18 22:51:40] [DIALOG] Travail terminé → dialog_active = False
+[2025-11-18 22:51:40] [FSM] WAIT_CAR activé | (wait_car=True, qr=False, face=False, dialog=False)
+[2025-11-18 22:51:40] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall

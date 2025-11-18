@@ -6,6 +6,7 @@ from std_msgs.msg import Bool
 
 from ai_pkg import state_flags as sf
 from ai_pkg.utils.logger import log
+from ai_pkg.utils.speaker import say
 
 
 class WaitCarNode(Node):
@@ -45,7 +46,7 @@ class WaitCarNode(Node):
         """
         self.car_arrived = msg.data
 
-        if msg.data:
+        if msg.data and self._working:
             log("[WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE")
 
     # -------------------------------------------------------------------
@@ -62,6 +63,7 @@ class WaitCarNode(Node):
             # Si la voiture vient d'arriver → terminer l'étape
             if self.car_arrived:
                 log("[WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False")
+                say("The car has arrived")
                 sf.wait_car_active = False
                 self._working = False
                 self.car_arrived = False  # reset local
