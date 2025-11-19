@@ -9,6 +9,7 @@
 #include <vector>
 #include <regex>
 #include <filesystem>
+#include <sys/statvfs.h>
 
 #include "rclcpp/rclcpp.hpp"
 #include "interfaces/msg/log_entry.hpp"
@@ -56,12 +57,8 @@ private:
 
   bool read_gpu_load_percent(int &gpu_percent) {
     const std::vector<std::string> gpus = {
-      "/sys/devices/platform/gpu.0/"//,
+      "/sys/devices/platform/gpu.0/load"//,
       // "/sys/devices/gpu.0/load",
-      // "/sys/devices/platform/host1x/gpu.0/load",
-      // "/sys/devices/57000000.gpu/load",
-      // "/sys/devices/platform/17000000.gv11b/gpu.0/load",
-      // "/sys/devices/platform/host1x/17000000.gv11b/load"
     };
 
     std::string line;
@@ -279,7 +276,7 @@ private:
     msg_ss << std::fixed << std::setprecision(1);
 
     if (cpu_percent < 0.0) {
-      logger(2, "pi_watchdog", "GeiCar is starting...");
+      logger(2, "jetson_watchdog", "GeiCar's jetson is starting...");
       msg_ss << "CPU: N/A (first reading)";
     } else {
       msg_ss << "CPU: " << cpu_percent << "%";
@@ -298,9 +295,7 @@ private:
       msg_ss << " | Free disk: " << (available_disk / 1024) << "MiB (" << (100 * (total_disk - available_disk)) / total_disk << "%)";
     }
 
-    msg_ss << " | Load1: " << std::setprecision(2) << load1 << std::setprecision(1);
-
-    msg_ss << " | Uptime: " << format_uptime(uptime_seconds);
+    msg_ss << " | CPU Temp: " << std::setprecision(2) << load1 << std::setprecision(1);
 
     if (has_temp) {
       msg_ss << " | Temp: " << cpu_temp_c << "C";
@@ -315,6 +310,7 @@ private:
       msg_ss << " | GPU Temp: " << gpu_temp_c << "C";
     }
 
+    msg_ss << " | Uptime: " << format_uptime(uptime_seconds);
     // publish as LogEntry
     auto msg = interfaces::msg::LogEntry();
     msg.level = 2;

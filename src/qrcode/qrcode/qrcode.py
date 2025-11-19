@@ -10,16 +10,15 @@ from std_msgs.msg import String
 from sensor_msgs.msg import CompressedImage
 from interfaces.msg import LogEntry
 
-
 class QRCodeNode(Node):
     def __init__(self):
         super().__init__('qrcode_node')
         qos = QoSProfile(depth=10)
 
         # Publisher pour envoyer le texte du QR code
-        self.logger_publisher_ = self.create_publisher(LogEntry, '/logger', qos)
+        self.logger_publisher_ = self.create_publisher(LogEntry, '/logger')
         self.publisher_ = self.create_publisher(String, 'qrcode_data', 10)
-        
+
         self.last_logged = None
 
         # Subscriber pour recevoir les images compressées ROS2
@@ -40,6 +39,9 @@ class QRCodeNode(Node):
         # 🔹 dernier identifiant détecté (Resident ID)
         self.current_resident_id = None
 
+        # Paramètres pour l'affichage limité
+        self.frame_count = 0  # Compteur pour limiter l'affichage
+
     def image_callback(self, msg: CompressedImage):
         # --- 1) convertir le CompressedImage ROS2 -> image OpenCV (BGR) ---
         try:
@@ -54,6 +56,11 @@ class QRCodeNode(Node):
 
         h, w = frame.shape[:2]
         frame_area = float(w * h)
+
+        # Limiter la détection à toutes les 10 frames (amélioration de la performance)
+        self.frame_count += 1
+        if self.frame_count % 10 != 0:  # Ne traiter que 1 frame sur 10
+            return
 
         result = bar.decode(frame)
         output = None
@@ -119,46 +126,15 @@ class QRCodeNode(Node):
                 self.get_logger().info(
                     f'current_resident_id={self.current_resident_id}'
                 )
-                
+
+                # Envoi de l'ID détecté dans le LogEntry
                 msg = LogEntry()
                 msg.level = LogEntry.TRACE
                 msg.sender = "QRNode"
                 msg.message = f"{self.current_resident_id}"
                 self.logger_publisher_.publish(msg)
 
-        # === AFFICHAGE CAMÉRA ===
-
-        # Remplace:
-        # cvzone.putTextRect(frame, 'QrCode Scanner', (190, 30), scale=2, thickness=2, border=2)
-        cv.putText(
-            frame,
-            'QrCode Scanner',
-            (190, 30),
-            cv.FONT_HERSHEY_SIMPLEX,
-            0.9,
-            (0, 255, 0),
-            2,
-            cv.LINE_AA
-        )
-
-        if output:
-            text = f"{output} ({confidence*100:.1f}%)"
-            # Remplace:
-            # cvzone.putTextRect(frame, text, (40, 300), scale=2, thickness=2, border=2)
-            cv.putText(
-                frame,
-                text,
-                (40, 300),
-                cv.FONT_HERSHEY_SIMPLEX,
-                0.9,
-                (0, 255, 255),
-                2,
-                cv.LINE_AA
-            )
-
-        cv.imshow('frame', frame)
-        cv.waitKey(1)
-
+        # Aucune opération d'affichage (cv.imshow et cv.putText ont été supprimées)
 
 def main(args=None):
     rclpy.init(args=args)
@@ -168,10 +144,8 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        cv.destroyAllWindows()
         node.destroy_node()
         rclpy.shutdown()
-
 
 if __name__ == '__main__':
     main()
