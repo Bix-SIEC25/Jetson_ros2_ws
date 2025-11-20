@@ -47,6 +47,8 @@ public:
 private:
   void motorsFeedbackCallback(const interfaces::msg::MotorsFeedback & msg)
   {
+    RCLCPP_INFO(this->get_logger(),
+                "I received a feedback");
     // Temps courant (pas de header dans MotorsFeedback, donc on prend now())
     rclcpp::Time current_time = this->now();
 
