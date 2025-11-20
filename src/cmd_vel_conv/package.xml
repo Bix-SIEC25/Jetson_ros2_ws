@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>geicar_start_jetson</name>
+  <name>cmd_vel_conv</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="a.pierreditlambert@gmail.com">root</maintainer>
+  <maintainer email="a.pierreditlambert@gmail.com">pi</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <depend>rclcpp</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>interfaces</depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
-
-    
-  <exec_depend>rplidar_ros</exec_depend>
-  <exec_depend>usb_cam</exec_depend>
-  <exec_depend>wheel_odom</exec_depend>
-  <exec_depend>cmd_vel_conv</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

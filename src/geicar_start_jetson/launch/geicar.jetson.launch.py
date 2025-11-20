@@ -77,10 +77,21 @@ def generate_launch_description():
         )
     )
 
+    cmd_vel_to_motors = Node(
+        package="cmd_vel_conv",
+        executable="cmd_vel_to_motors_node",
+        parameters=[{
+            "max_linear_speed":  0.6,  # à adapter
+            "max_angular_speed": 1.0,  # à adapter
+        }],
+        emulate_tty=True
+    )
+
     return LaunchDescription([
         usb_cam_node_exe,
         audio_capture_node,
         sllidar_node,
         static_tf_scan,
         rf2o_launch,
+        cmd_vel_to_motors,
     ])
