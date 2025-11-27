@@ -52,10 +52,10 @@ private:
       pwm = 50;
     } else if (!reverse) {
       // Avant : 50 -> 100
-      pwm = static_cast<uint8_t>(50.0 + 50.0 * v_norm);
+      pwm = static_cast<uint8_t>(50.0 + 50.0 * v_norm)*1.4;
     } else {
       // Arrière : 50 -> 0
-      pwm = static_cast<uint8_t>(50.0 - 50.0 * v_norm);
+      pwm = static_cast<uint8_t>(50.0 - 50.0 * v_norm)*10.0;
     }
 
     out.left_rear_pwm  = static_cast<int8_t>(pwm);
@@ -67,12 +67,12 @@ private:
 
     double steer_norm = 0.0; // [-1 ; 1]
     if (max_angular_speed_ > 1e-3) {
-      steer_norm = w / max_angular_speed_;
+      steer_norm = -(w / max_angular_speed_)*1.4;
     }
     steer_norm = clamp(steer_norm, -1.0, 1.0);
 
     // Même convention que car_control_node : [-1,1] -> [-127,+127]
-    out.steering_pwm = static_cast<int8_t>(steer_norm * 127.0);
+    out.steering_pwm = static_cast<int8_t>(steer_norm * 100.0);
 
     motors_pub_->publish(out);
   }

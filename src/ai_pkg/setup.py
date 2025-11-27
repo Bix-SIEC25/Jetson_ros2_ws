@@ -31,6 +31,18 @@ if os.path.isdir(model_root):
         src_files = [os.path.join(root, f) for f in files]
         data_files.append((install_dir, src_files))
 
+
+# --- install embeddings & names .npy files ---
+embeddings_file = os.path.join('models', 'embeddings.npy')
+names_file = os.path.join('models', 'names.npy')
+
+if os.path.isfile(embeddings_file) and os.path.isfile(names_file):
+    data_files.append(
+        (os.path.join('share', package_name, 'models'),
+         [embeddings_file, names_file])
+    )
+
+
 setup(
     name=package_name,
     version='0.0.0',
@@ -57,6 +69,7 @@ setup(
         'console_scripts': [
             'vocal_recognition = ai_pkg.vocal_recognition:main',
             'face_recognition_node = ai_pkg.face_recognition_node:main',
+            'fall_detection = ai_pkg.fall_detection:main',
         ],
     },
 )

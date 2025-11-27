@@ -15,10 +15,12 @@ def generate_launch_description():
         parameters=[{
             "image_width": 1280,
             "image_height": 960,
+            "framerate": 15.0, # 5 10 15 20 30
             "pixel_format": "mjpeg2rgb"
         }],
         emulate_tty=True
     )
+
 
     # Micro
     audio_capture_node = Node(
