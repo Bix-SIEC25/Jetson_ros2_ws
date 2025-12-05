@@ -88,6 +88,12 @@ def generate_launch_description():
         }],
         emulate_tty=True
     )
+    
+    watchdog = Node(
+        package="watchdog",
+        executable="watchdog",
+        emulate_tty=True
+    )
 
     nav2_bringup_dir = get_package_share_directory("nav2_bringup")
     nav2_launch = IncludeLaunchDescription(
@@ -109,4 +115,5 @@ def generate_launch_description():
         rf2o_launch,
         cmd_vel_to_motors,
         nav2_launch,
+        watchdog,
     ])

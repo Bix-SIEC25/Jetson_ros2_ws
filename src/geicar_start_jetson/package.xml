@@ -17,6 +17,7 @@
   <exec_depend>usb_cam</exec_depend>
   <exec_depend>wheel_odom</exec_depend>
   <exec_depend>cmd_vel_conv</exec_depend>
+  <exec_depend>watchdog</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
