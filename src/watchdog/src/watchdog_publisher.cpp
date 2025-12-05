@@ -1,4 +1,3 @@
-// WatchdogPublisher_with_gpu.cpp
 #include <chrono>
 #include <memory>
 #include <fstream>
@@ -57,8 +56,7 @@ private:
 
   bool read_gpu_load_percent(int &gpu_percent) {
     const std::vector<std::string> gpus = {
-      "/sys/devices/platform/gpu.0/load"//,
-      // "/sys/devices/gpu.0/load",
+      "/sys/devices/platform/gpu.0/load"
     };
 
     std::string line;
@@ -295,14 +293,14 @@ private:
       msg_ss << " | Free disk: " << (available_disk / 1024) << "MiB (" << (100 * (total_disk - available_disk)) / total_disk << "%)";
     }
 
-    msg_ss << " | CPU Temp: " << std::setprecision(2) << load1 << std::setprecision(1);
+    msg_ss << " | CPU: " << std::setprecision(2) << load1*100. << "%" << std::setprecision(1);
 
     if (has_temp) {
-      msg_ss << " | Temp: " << cpu_temp_c << "C";
+      msg_ss << " | CPU Temp: " << cpu_temp_c << "C";
     }
 
     if (has_gpu_util) {
-      msg_ss << " | GPU: " << gpu_util << "%";
+      msg_ss << " | GPU: " << ((float)gpu_util)/10.f << "%";
     } else {
       msg_ss << " | GPU: N/A";
     }
@@ -311,7 +309,6 @@ private:
     }
 
     msg_ss << " | Uptime: " << format_uptime(uptime_seconds);
-    // publish as LogEntry
     auto msg = interfaces::msg::LogEntry();
     msg.level = 2;
     msg.sender = "jetson_watchdog";
