@@ -13,8 +13,8 @@ def generate_launch_description():
         package="usb_cam",
         executable="usb_cam_node_exe",
         parameters=[{
-            "image_width": 800,
-            "image_height": 600,
+            "image_width": 640,
+            "image_height": 480,
             "framerate": 15.0, # 5 10 15 20 30
             "pixel_format": "mjpeg2rgb"
         }],
@@ -107,6 +107,15 @@ def generate_launch_description():
         }.items(),
     )
 
+    # --------- MACHINE A ETAT DE L'IA ---------
+
+    state_machine = Node(
+        package="ai_pkg",
+        executable="ai_scenario",
+        emulate_tty=True
+    )
+    
+
     return LaunchDescription([
         usb_cam_node_exe,
         audio_capture_node,
@@ -116,4 +125,5 @@ def generate_launch_description():
         cmd_vel_to_motors,
         nav2_launch,
         watchdog,
+        state_machine,
     ])

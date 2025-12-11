@@ -11,6 +11,7 @@ from rclpy.qos import qos_profile_sensor_data
 
 from std_msgs.msg import String
 from sensor_msgs.msg import CompressedImage
+from interfaces.msg import LogEntry  # <-- ajout
 
 from facenet_pytorch import MTCNN, InceptionResnetV1
 
@@ -41,7 +42,7 @@ class FaceRecognitionNode(Node):
         try:
             self.embeddings_db = np.load(EMB_PATH)
             self.names_db = np.load(NAMES_PATH)
-            self.get_logger().info(f'Database loaded: {len(self.names_db)} entries.')
+            self.get_logger().info(f'Database loaded: {len(self.names_db)} identities')
         except Exception as e:
             self.get_logger().error(f'Error loading embeddings/names: {e}')
             self.embeddings_db = None
@@ -53,8 +54,14 @@ class FaceRecognitionNode(Node):
         # Face embedding model (FaceNet)
         self.resnet = InceptionResnetV1(pretrained='vggface2').eval().to(self.device)
 
-        # Publisher: recognized face
-        self.publisher_ = self.create_publisher(String, 'face_recognition', 10)
+        # Publisher: recognized face (String)
+        self.publisher_ = self.create_publisher(String, 'qrcode_data', 10)
+
+        # Publisher: logger (LogEntry), comme dans QRCodeNode
+        self.logger_publisher_ = self.create_publisher(LogEntry, '/logger', 10)
+
+        # Pour éviter de logger mille fois la même personne
+        self.last_logged_name = None
 
         # Subscriber: receive camera compressed images
         self.subscription = self.create_subscription(
@@ -66,9 +73,9 @@ class FaceRecognitionNode(Node):
 
         self.get_logger().info("FaceRecognition Node started! Subscribed to /image_raw/compressed")
 
-    # ----------------------------------------------------------------------
+    # -------------------------------------------------------------------
     # RECOGNITION FUNCTION
-    # ----------------------------------------------------------------------
+    # -------------------------------------------------------------------
     def recognize(self, frame_rgb):
         if self.embeddings_db is None:
             return None, None
@@ -96,9 +103,9 @@ class FaceRecognitionNode(Node):
 
         return name, float(min_dist)
 
-    # ----------------------------------------------------------------------
+    # -------------------------------------------------------------------
     # CALLBACK
-    # ----------------------------------------------------------------------
+    # -------------------------------------------------------------------
     def image_callback(self, msg: CompressedImage):
         # 1. decode compressed image into cv2 frame
         try:
@@ -119,25 +126,47 @@ class FaceRecognitionNode(Node):
 
         # 4. Publish result
         if name is not None:
+            # Publication "classique" sur le topic face_recognition
             msg_out = String()
-            msg_out.data = f"{name};{dist:.3f}"
+            msg_out.data = name
             self.publisher_.publish(msg_out)
-            self.get_logger().info(f"Face: {name} ({dist:.2f})")
+            self.get_logger().info(f"Face: {name} ({dist:.2f}), old_face {self.last_logged_name}")
+
+            # Publication dans le logger, comme pour le QR code
+            if name != self.last_logged_name and name != "UNKNOWN":
+                self.last_logged_name = name
+
+                log_msg = LogEntry()
+                log_msg.level = LogEntry.TRACE
+                log_msg.sender = "FaceRecognitionNode"
+                log_msg.message = name  # la personne reconnue
+
+                self.logger_publisher_.publish(log_msg)
+                self.get_logger().info(f"LOG ENTRY envoyé pour {name}")
 
             # Draw text on image
-            cv2.putText(frame, f"{name} ({dist:.2f})", (10, 30),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv2.putText(
+                frame,
+                f"{name} ({dist:.2f})",
+                (10, 30),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (0, 255, 0),
+                2
+            )
 
         # 5. Show the video (useful on Jetson with a screen)
         try:
             cv2.imshow("FaceNet Recognition", frame)
             cv2.waitKey(1)
-        except:
-            pass  # headless mode
+        except Exception:
+            # headless mode
+            pass
 
-# --------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------
 # MAIN
-# --------------------------------------------------------------------------
+# -----------------------------------------------------------------------
 def main(args=None):
     rclpy.init(args=args)
     node = FaceRecognitionNode()
