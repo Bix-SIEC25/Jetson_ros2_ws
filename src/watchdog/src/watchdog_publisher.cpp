@@ -273,12 +273,14 @@ private:
     std::ostringstream msg_ss;
     msg_ss << std::fixed << std::setprecision(1);
 
+    
     if (cpu_percent < 0.0) {
       logger(2, "jetson_watchdog", "GeiCar's jetson is starting...");
       msg_ss << "CPU: N/A (first reading)";
     } else {
       msg_ss << "CPU: " << cpu_percent << "%";
     }
+    msg_ss << " (avg: " << std::setprecision(2) << load1 << "%)" << std::setprecision(1);
 
     if (mem_total_kb > 0) {
       double total_mb = static_cast<double>(mem_total_kb) / 1024.0;
@@ -292,8 +294,6 @@ private:
     if (get_disk_usage("/", total_disk, available_disk)) {
       msg_ss << " | Free disk: " << (available_disk / 1024) << "MiB (" << (100 * (total_disk - available_disk)) / total_disk << "%)";
     }
-
-    msg_ss << " | CPU: " << std::setprecision(2) << load1*100. << "%" << std::setprecision(1);
 
     if (has_temp) {
       msg_ss << " | CPU Temp: " << cpu_temp_c << "C";
