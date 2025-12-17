@@ -53,6 +53,7 @@ def say(text: str):
     Fait parler le robot via l'action /say.
     Non bloquant.
     pactl set-sink-volume @DEFAULT_SINK@ 50%
+    
     """
     global _talker_node
 
