@@ -12,7 +12,7 @@ class _TalkerNode(Node):
     def __init__(self):
         super().__init__("talker_helper")
         self._tts_client = ActionClient(self, TTS, "/say")
-        log("TalkerNode initialisé")
+        log("[TTS]: TalkerNode initialisé")
 
     def say(self, text: str):
         if not self._tts_client.wait_for_server(timeout_sec=1.0):
