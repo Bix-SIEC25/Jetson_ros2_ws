@@ -124,6 +124,6 @@ def generate_launch_description():
         rf2o_launch,
         cmd_vel_to_motors,
         nav2_launch,
-        watchdog,
+        #watchdog,
         state_machine,
     ])
