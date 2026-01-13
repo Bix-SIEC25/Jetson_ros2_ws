@@ -233,6 +233,7 @@ class QRNode(Node):
                 log_msg.sender = "QRNode"
                 log_msg.message = best_output
                 self.logger_publisher_.publish(log_msg)
+                log("[QR] QR Code sent to server: " + best_output)
 
             log("[QR] QR CONFIRMED -> qr_active=False")
             # say("QR code detected.")

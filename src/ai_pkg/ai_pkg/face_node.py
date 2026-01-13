@@ -189,11 +189,6 @@ class FaceNode(Node):
             self.name = "UNKNOWN"
             # La FSM verra ce False et passera à l'état suivant
 
-        # ⚠️ AUCUN AFFICHAGE OPENCV ICI
-        # - pas de cv2.putText
-        # - pas de cv2.imshow
-        # - pas de cv2.waitKey
-
 
 # -----------------------------------------------------------------------
 # MAIN (utilisé seulement lancement de ce node tout seul)

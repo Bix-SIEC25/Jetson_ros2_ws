@@ -40,13 +40,11 @@ class WaitCarNode(Node):
     # Callback du topic : /car_arrived_to_fall
     # -------------------------------------------------------------------
     def car_callback(self, msg: Bool):
-        """
-        Ce callback est appelé dès qu'un message arrive sur /car_arrived_to_fall.
-        On met juste à jour l'état interne.
-        """
-        self.car_arrived = msg.data
-
-        if msg.data and self._working:
+        # Ne mémorise que pendant l'étape active
+        if not sf.wait_car_active:
+            return
+        self.car_arrived = bool(msg.data)
+        if self.car_arrived and self._working:
             log("[WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE")
 
     # -------------------------------------------------------------------
@@ -56,22 +54,22 @@ class WaitCarNode(Node):
         # Si la FSM n'a pas activé cette étape → idle
         if not sf.wait_car_active:
             self._working = False
+            self.car_arrived = False   # reset pour éviter le stale
+            return
+        
+        if not self._working:
+            self._working = True
+            self.car_arrived = False   # reset à l'entrée d'état
+            log("[WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall")
             return
 
-        # Si on a déjà commencé à attendre → on ne relance pas
-        if self._working:
-            # Si la voiture vient d'arriver → terminer l'étape
-            if self.car_arrived:
-                log("[WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False")
-                say("The car has arrived")
-                sf.wait_car_active = False
-                self._working = False
-                self.car_arrived = False  # reset local
+        if self.car_arrived:
+            log("[WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False")
+            say("The car has arrived")
+            sf.wait_car_active = False
+            self._working = False
+            self.car_arrived = False  # reset local
             return
-
-        # --- Activation de l'attente ---
-        self._working = True
-        log("[WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall")
 
 
 # -----------------------------------------------------------------------
