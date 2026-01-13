@@ -48,14 +48,23 @@ class FallIANode(Node):
         self.PERSON_CLASS_ID = 1
 
         # ===== Heuristiques / filtres =====
-        self.conf_thresh = 0.75          # augmente => moins de faux positifs
-        self.fall_ratio_thresh = 0.80    # h/w < 0.80 => "allongé"
-        self.max_area_ratio = 0.90       # ignore si box couvre trop l'image (souvent faux)
-        self.min_box_area = 0.02         # ignore si box trop petite (2% image) -> bruit
+        # NOTE: conf_thresh devient adaptatif (voir _adaptive_conf_thresh)
+        self.conf_thresh_default = 0.75      # pour "grosses" personnes
+        self.conf_thresh_small = 0.60        # pour petites boxes (loin)
+
+        self.fall_ratio_thresh = 0.80        # h/w < 0.80 => "allongé"
+        self.max_area_ratio = 0.90           # ignore si box couvre trop l'image (souvent faux)
+
+        # ↓ Patch: plus permissif pour la distance
+        self.min_box_area = 0.003            # 0.3% image (au lieu de 2%)
+
+        # ↓ Patch: filtrage dimensions minimales (évite ratio bruité sur boxes minuscules)
+        self.min_box_w = 18                  # en pixels (sur l'image après preprocess)
+        self.min_box_h = 18                  # en pixels
 
         # ===== Anti-faux-positifs temporels =====
-        self.MIN_CONFIRM_FRAMES = 4      # chute confirmée si 4 inférences consécutives "fall"
-        self.DETECT_EVERY_N_FRAMES = 3   # on ne fait l'inférence qu'1 image sur N reçues
+        self.MIN_CONFIRM_FRAMES = 4          # (si tu veux 3: mets 3 ici)
+        self.DETECT_EVERY_N_FRAMES = 2       # ↓ Patch: plus fréquent (au lieu de 3)
         self._fall_streak = 0
         self._frame_seen = 0
 
@@ -97,6 +106,19 @@ class FallIANode(Node):
         img = Image.open(bio).convert("RGB")
         return img
 
+    def _adaptive_conf_thresh(self, box_area: float, img_area: float) -> float:
+        """
+        Seuil de confiance adaptatif:
+        - petites boxes (loin) : on accepte plus bas (0.60)
+        - sinon : 0.75
+        """
+        area_ratio = box_area / (img_area + 1e-9)
+
+        # "petit" = < 1% image (à ajuster si besoin)
+        if area_ratio < 0.01:
+            return self.conf_thresh_small
+        return self.conf_thresh_default
+
     def _infer_fall(self, pil_img) -> bool:
         """
         Retourne True si on détecte au moins une personne "allongée" selon l'heuristique.
@@ -117,8 +139,6 @@ class FallIANode(Node):
         fall_detected = False
 
         for box, label, score in zip(boxes, labels, scores):
-            if float(score) < self.conf_thresh:
-                continue
             if int(label) != self.PERSON_CLASS_ID:
                 continue
 
@@ -128,10 +148,23 @@ class FallIANode(Node):
             if w <= 1.0 or h <= 1.0:
                 continue
 
+            # ↓ Patch: filtre dimensions minimales
+            if w < self.min_box_w or h < self.min_box_h:
+                continue
+
             box_area = w * h
+
+            # filtre "trop grand"
             if box_area > self.max_area_ratio * img_area:
                 continue
+
+            # ↓ Patch: filtre "trop petit" plus permissif
             if box_area < self.min_box_area * img_area:
+                continue
+
+            # ↓ Patch: seuil score adaptatif selon taille box
+            conf_thresh = self._adaptive_conf_thresh(box_area=box_area, img_area=img_area)
+            if float(score) < conf_thresh:
                 continue
 
             aspect = h / (w + 1e-6)  # h/w
