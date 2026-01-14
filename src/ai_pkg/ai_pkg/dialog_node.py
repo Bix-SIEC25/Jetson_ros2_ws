@@ -23,12 +23,12 @@ from ai_pkg.utils.logger import log
 
 
 # ----------------- PARAMS -----------------
-SAMPLE_RATE = 16000  # doit matcher la source audio
+SAMPLE_RATE = 16000               # doit matcher la source audio
 
 CONF_THRESH_FINAL = 0.85          # monte un peu pour réduire les faux positifs
 DEBOUNCE_MS = 600                 # anti-répétitions sur final
 
-ANSWER_TIMEOUT_S = 10.0            # délai max pour répondre à UNE question
+ANSWER_TIMEOUT_S = 10.0           # délai max pour répondre à UNE question
 SESSION_TIMEOUT_S = 50.0          # délai max total
 MAX_RETRIES = 1                   # 1 retry => 2 chances au total
 
@@ -49,6 +49,9 @@ MIN_RMS = 250.0
 # (réduit fortement les urgences déclenchées par bruit)
 NO_FINAL_CONFIRMATIONS_REQUIRED = 2
 NO_CONFIRM_WINDOW_S = 2.5
+
+# Cooldown après fin du dialogue (laisser le patient se relever)
+POST_DIALOG_COOLDOWN_S = 10.0
 
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 PLACES = ["home", "hospital"]
@@ -92,6 +95,10 @@ class DialogNode(Node):
     - partial désactivé (option)
     - seuil RMS minimum
     - "no" => urgence seulement sur FINAL + double confirmation
+    - debounce par mot détecté
+    - Quand on passe à DONE, on attend POST_DIALOG_COOLDOWN_S avant de mettre
+      sf.dialog_active=False. Ça bloque la FSM dans DIALOG pendant 10s pour laisser
+      le patient se relever et éviter un re-trigger immédiat de la fall detection.
     """
 
     # ---- mini FSM interne ----
@@ -120,6 +127,9 @@ class DialogNode(Node):
         # NO confirmation
         self._no_final_hits = 0
         self._no_first_hit_t = 0.0
+
+        # Cooldown fin de dialogue
+        self._done_cooldown_until = 0.0
 
         # ---- Vosk model ----
         model_path = get_model_path()
@@ -152,7 +162,7 @@ class DialogNode(Node):
         self._tts_speaking = False
         self._tts_speaking_until = 0.0
 
-        # Timer: manage session start/stop + timeouts
+        # Timer: manage session start/stop + timeouts + cooldown DONE
         self.timer = self.create_timer(0.1, self.loop)
 
         log(f"[DIALOG] Ready. Listening on {AUDIO_TOPIC}")
@@ -248,6 +258,9 @@ class DialogNode(Node):
             self._no_final_hits = 0
             self._no_first_hit_t = 0.0
 
+            # reset cooldown
+            self._done_cooldown_until = 0.0
+
             self._tts_ready = False
             self._tts_checked_once = False
 
@@ -260,12 +273,13 @@ class DialogNode(Node):
         # IMPORTANT: On évite de prononcer "YES or NO" en TTS pour limiter l'écho lexical
 
     def _stop_session(self):
+        # IMPORTANT: ne pas désactiver sf.dialog_active tout de suite
         with self._lock:
             self._session_running = False
             self._step = self.STEP_DONE
+            self._done_cooldown_until = time.monotonic() + POST_DIALOG_COOLDOWN_S
 
-        log("[DIALOG] Session finished -> dialog_active=False")
-        sf.dialog_active = False
+        log(f"[DIALOG] Session finished -> cooldown {POST_DIALOG_COOLDOWN_S:.1f}s before dialog_active=False")
 
     def call_ambulance(self, reason=""):
         if reason:
@@ -326,19 +340,33 @@ class DialogNode(Node):
             with self._lock:
                 self._session_running = False
                 self._step = self.STEP_DONE
+                self._done_cooldown_until = 0.0
             log("[DIALOG] FSM disabled dialog_active -> stop session (silent)")
 
         self._prev_dialog_active = sf.dialog_active
 
-        # manage timeouts
+        now = time.monotonic()
+
+        # Cooldown post-DONE : on retarde la libération de la FSM
         with self._lock:
-            if not self._session_running:
-                return
             step = self._step
+            cooldown_until = self._done_cooldown_until
+            session_running = self._session_running
             step_t = self._step_started_t
             sess_t = self._session_started_t
 
-        now = time.monotonic()
+        if step == self.STEP_DONE and cooldown_until > 0.0:
+            if now >= cooldown_until:
+                log("[DIALOG] Cooldown done -> dialog_active=False (FSM can advance)")
+                sf.dialog_active = False
+                with self._lock:
+                    self._done_cooldown_until = 0.0
+            return  # pendant cooldown: on ne fait rien d'autre
+
+        # manage timeouts
+        if not session_running:
+            return
+
         if now - sess_t > SESSION_TIMEOUT_S:
             self.call_ambulance("session timeout")
             return
@@ -514,7 +542,6 @@ class DialogNode(Node):
                 return
 
             # partial => on n'avance pas directement, on attend final (plus sûr)
-            # (si tu veux, tu peux faire un "soft prompt" ici)
             return
 
 
