@@ -65,7 +65,7 @@ class WaitCarNode(Node):
 
         if self.car_arrived:
             log("[WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False")
-            say("The car has arrived")
+            say("Arrived")
             sf.wait_car_active = False
             self._working = False
             self.car_arrived = False  # reset local

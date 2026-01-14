@@ -4,6 +4,7 @@ import threading
 import cv2 as cv
 import numpy as np
 from pyzbar import pyzbar as bar
+import requests
 
 import rclpy
 from rclpy.node import Node
@@ -17,6 +18,7 @@ from ai_pkg import state_flags as sf
 from ai_pkg.utils.logger import log
 # from ai_pkg.utils.speaker import say
 
+SERVER_BASE = "https://bix.ovh/add_log"
 
 class QRNode(Node):
     """
@@ -51,8 +53,8 @@ class QRNode(Node):
         # --- Anti faux positifs / paramètres ---
         self.DETECT_EVERY_N_FRAMES = 2     # 1 image sur N (CPU)
         self.MAX_STABLE = 6               # stabilité "100%" à 6 hits consécutifs
-        self.CONF_THRESHOLD = 0.65        # seuil global confiance
-        self.MIN_CONFIRM_HITS = 3         # nombre de frames (consécutives) au-dessus du seuil
+        self.CONF_THRESHOLD = 0.50        # seuil global confiance
+        self.MIN_CONFIRM_HITS = 1         # nombre de frames (consécutives) au-dessus du seuil
 
         # Aire QR (dans l'image) -> score
         self.AREA_MIN = 0.003
@@ -143,6 +145,25 @@ class QRNode(Node):
 
         return output, base
 
+    def _send_to_server(self, sender: str, level: int, message: str) -> None:
+        params = {
+            "sender": sender,
+            "type": level,
+            "msg": message,
+        }
+
+        try:
+            r = requests.get(
+                SERVER_BASE,
+                params=params,
+                timeout=2.0
+            )
+            r.raise_for_status()
+            log(f"[QR] Server GET OK ({r.status_code})")
+
+        except requests.RequestException as e:
+            log(f"[QR] Server GET failed: {e}")
+
     def loop(self):
         # Si FSM coupe qr_active, on reset et on quitte
         if not sf.qr_active:
@@ -228,11 +249,11 @@ class QRNode(Node):
 
             if best_output != self.last_logged:
                 self.last_logged = best_output
-                log_msg = LogEntry()
-                log_msg.level = LogEntry.TRACE
-                log_msg.sender = "QRNode"
-                log_msg.message = best_output
-                self.logger_publisher_.publish(log_msg)
+                self._send_to_server(
+                    sender="QRNode",
+                    level=1,
+                    message=best_output
+                )
                 log("[QR] QR Code sent to server: " + best_output)
 
             log("[QR] QR CONFIRMED -> qr_active=False")

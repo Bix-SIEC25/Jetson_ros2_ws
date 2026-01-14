@@ -7,6 +7,7 @@ import numpy as np
 import torch
 from PIL import Image
 from ament_index_python.packages import get_package_share_directory
+import requests
 
 import rclpy
 from rclpy.node import Node
@@ -22,6 +23,7 @@ from ai_pkg import state_flags as sf
 from ai_pkg.utils.logger import log
 from ai_pkg.utils.speaker import say
 
+SERVER_BASE = "https://bix.ovh/add_log"
 
 class FaceNode(Node):
     """
@@ -107,6 +109,29 @@ class FaceNode(Node):
         elif not sf.face_active and self._active:
             self._active = False
             log("[FACE] Désactivation par la FSM (sf.face_active = False)")
+    
+
+    # -------------------------------------------------------------------
+    # UTILS
+    # -------------------------------------------------------------------
+    def _send_to_server(self, sender: str, level: int, message: str) -> None:
+        params = {
+            "sender": sender,
+            "type": level,
+            "msg": message,
+        }
+
+        try:
+            r = requests.get(
+                SERVER_BASE,
+                params=params,
+                timeout=2.0
+            )
+            r.raise_for_status()
+            log(f"[QR] Server GET OK ({r.status_code})")
+
+        except requests.RequestException as e:
+            log(f"[QR] Server GET failed: {e}")
 
     # -------------------------------------------------------------------
     # RECONNAISSANCE
@@ -172,14 +197,12 @@ class FaceNode(Node):
         # 5. Logger centralisé (comme QRCodeNode)
         if name != "UNKNOWN":
             self.last_logged_name = name
-
-            log_msg = LogEntry()
-            log_msg.level = LogEntry.TRACE
-            log_msg.sender = "FaceRecognitionNode"
-            log_msg.message = name
-
-            self.logger_publisher_.publish(log_msg)
-            log(f"[FACE] LOG ENTRY envoyé pour {name}")
+            self._send_to_server(
+                    sender="FaceRecognitionNode",
+                    level=1,
+                    message=name
+                )
+            log("[FACE] Face sent to server: " + name)
 
         # 6. Si visage connu → signaler fin de travail à la FSM
         if name != "UNKNOWN":

@@ -29,6 +29,14 @@ class MovCarNode(Node):
         self._base_frame = "base_link"
         self._arrive_dist_m = 0.30  # 30 cm
 
+        # ---------- Initialpose grace period ----------
+        self._initpose_time = None
+        self._initpose_grace_s = 10.0
+
+        # ---------- Anti-spam / reject cooldown ----------
+        self._last_reject_time = None
+        self._reject_cooldown_s = 1.0
+
         # ---------- TF ----------
         self._tf_buffer = tf2_ros.Buffer()
         self._tf_listener = tf2_ros.TransformListener(self._tf_buffer, self)
@@ -214,9 +222,16 @@ class MovCarNode(Node):
     # ROS callbacks
     # =========================================================
     def _on_initialpose(self, msg: PoseWithCovarianceStamped):
-        if not self._have_initialpose:
-            self._have_initialpose = True
-            log("[MOV_CAR] Initial pose received -> ready")
+        # à chaque /initialpose (même correction), on repousse la reprise
+        self._have_initialpose = True
+        self._initpose_time = self.get_clock().now()
+
+        # si MOV_CAR actif, on forcera (après la grace) le choix A/B par yaw
+        if sf.mov_car_active:
+            self._need_route_init = True
+            self._cancel_goal()
+
+        log(f"[MOV_CAR] /initialpose received -> grace {self._initpose_grace_s:.1f}s, then choose A/B by yaw")
 
     def _on_someone_fell(self, msg: Bool):
         if not msg.data or not sf.mov_car_active:
@@ -228,6 +243,7 @@ class MovCarNode(Node):
         self._cancel_goal()
 
     def _on_goal_response(self, future, seq_id: int):
+        # Ignore réponses anciennes
         if seq_id != self._goal_seq:
             try:
                 gh = future.result()
@@ -238,16 +254,42 @@ class MovCarNode(Node):
             return
 
         goal_handle = future.result()
+
+        # 🚨 Si MOV_CAR est déjà désactivé (ex: chute détectée),
+        # on annule immédiatement le goal s'il est accepté
+        if not sf.mov_car_active:
+            try:
+                if goal_handle and goal_handle.accepted:
+                    goal_handle.cancel_goal_async()
+                    log("[MOV_CAR] Goal accepted after STOP -> canceled immediately")
+            except Exception as e:
+                log(f"[MOV_CAR] Cancel-after-STOP error: {e}")
+
+            self._goal_handle = None
+            self._in_flight = False
+            self._current_goal_xy = None
+            self._pending_next = False
+            return
+
+        # Goal rejeté par Nav2
         if not goal_handle.accepted:
             log("[MOV_CAR] Goal rejected")
             self._goal_handle = None
             self._in_flight = False
             self._current_goal_xy = None
+            self._last_reject_time = self.get_clock().now()
             return
+
+        # ✅ Seulement si accepté ET toujours actif
+        # on prépare le waypoint suivant
+        self._advance_wp_pingpong()
 
         self._goal_handle = goal_handle
         result_future = goal_handle.get_result_async()
-        result_future.add_done_callback(lambda fut: self._on_result(fut, seq_id))
+        result_future.add_done_callback(
+            lambda fut, sid=seq_id: self._on_result(fut, sid)
+        )
+
 
     def _on_result(self, future, seq_id: int):
         if seq_id != self._goal_seq:
@@ -295,6 +337,21 @@ class MovCarNode(Node):
         # attente initial pose
         if not self._have_initialpose:
             return
+
+        # --- GRACE PERIOD: laisser le temps de corriger la pose dans RViz ---
+        if self._initpose_time is not None:
+            dt = (self.get_clock().now() - self._initpose_time).nanoseconds * 1e-9
+            if dt < self._initpose_grace_s:
+                # sécurité: pas de mouvement pendant la période
+                if self._goal_handle or self._in_flight:
+                    self._cancel_goal()
+                return
+
+        # anti-spam si Nav2 rejette
+        if self._last_reject_time is not None:
+            dt_rej = (self.get_clock().now() - self._last_reject_time).nanoseconds * 1e-9
+            if dt_rej < self._reject_cooldown_s:
+                return
 
         # init route yaw-only (on réessaie tant que TF pas prêt)
         if self._need_route_init:
@@ -349,9 +406,7 @@ class MovCarNode(Node):
 
             log(f"[MOV_CAR] Send goal idx={self._wp_idx} ({x:.2f}, {y:.2f}, yaw={yaw:.2f}) dir={self._direction}")
 
-            # IMPORTANT: prépare le waypoint suivant dans le bon sens (ping-pong)
-            self._advance_wp_pingpong()
-
+            # ⚠️ NE PAS advance ici : on advance seulement si le goal est accepté
             send_future = self._nav_client.send_goal_async(goal)
             send_future.add_done_callback(lambda fut, sid=seq_id: self._on_goal_response(fut, sid))
 

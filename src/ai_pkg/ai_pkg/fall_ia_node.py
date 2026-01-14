@@ -63,8 +63,8 @@ class FallIANode(Node):
         self.min_box_h = 18                  # en pixels
 
         # ===== Anti-faux-positifs temporels =====
-        self.MIN_CONFIRM_FRAMES = 4          # (si tu veux 3: mets 3 ici)
-        self.DETECT_EVERY_N_FRAMES = 2       # ↓ Patch: plus fréquent (au lieu de 3)
+        self.MIN_CONFIRM_FRAMES = 1          # (si tu veux 3: mets 3 ici)
+        self.DETECT_EVERY_N_FRAMES = 1       # ↓ Patch: plus fréquent (au lieu de 3)
         self._fall_streak = 0
         self._frame_seen = 0
 
