@@ -28,9 +28,9 @@ SAMPLE_RATE = 16000  # doit matcher la source audio
 CONF_THRESH_FINAL = 0.85          # monte un peu pour réduire les faux positifs
 DEBOUNCE_MS = 600                 # anti-répétitions sur final
 
-ANSWER_TIMEOUT_S = 8.0            # délai max pour répondre à UNE question
+ANSWER_TIMEOUT_S = 10.0            # délai max pour répondre à UNE question
 SESSION_TIMEOUT_S = 50.0          # délai max total
-MAX_RETRIES = 2                   # 1 retry => 2 chances au total
+MAX_RETRIES = 1                   # 1 retry => 2 chances au total
 
 AUDIO_TOPIC = "/audio_mic"
 TTS_ACTION = "/say"
@@ -39,7 +39,7 @@ TTS_ACTION = "/say"
 ENABLE_PARTIAL = False
 
 # Anti-echo: ignore ASR pendant TTS + un tail après la fin
-TTS_TAIL_S = 0.40
+TTS_TAIL_S = 1.0
 
 # Garde de bruit simple: ignore trames trop faibles
 # Ajuste selon ton micro/bruit ambiant.
@@ -364,7 +364,7 @@ class DialogNode(Node):
         if self._no_final_hits == 0:
             self._no_final_hits = 1
             self._no_first_hit_t = now
-            self.say("I heard no. Please repeat: are you okay? Yes or no.")
+            self.say("Could you repeat: are you okay?")
             # reset timer for the step to give time to answer
             self._step_started_t = time.monotonic()
             return
@@ -373,7 +373,7 @@ class DialogNode(Node):
         if now - self._no_first_hit_t > NO_CONFIRM_WINDOW_S:
             self._no_final_hits = 1
             self._no_first_hit_t = now
-            self.say("Please repeat clearly: yes or no.")
+            self.say("Please repeat clearly !")
             self._step_started_t = time.monotonic()
             return
 
