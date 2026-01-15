@@ -125,7 +125,7 @@ class FaceNode(Node):
             r = requests.get(
                 SERVER_BASE,
                 params=params,
-                timeout=2.0
+                timeout=5.0
             )
             r.raise_for_status()
             log(f"[QR] Server GET OK ({r.status_code})")
