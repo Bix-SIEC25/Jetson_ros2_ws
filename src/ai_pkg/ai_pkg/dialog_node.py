@@ -268,7 +268,7 @@ class DialogNode(Node):
             self._reset_recognizer()
 
         log("[DIALOG] Session started")
-        self.say("Hello. Can you hear me?")
+        self.say("Can you hear me?")
 
         # IMPORTANT: On évite de prononcer "YES or NO" en TTS pour limiter l'écho lexical
 

@@ -105,7 +105,7 @@ class FaceNode(Node):
         if sf.face_active and not self._active:
             self._active = True
             log("[FACE] Activation par la FSM (sf.face_active = True)")
-            say("Face recognition activated")
+            # say("Face recognition activated")
         elif not sf.face_active and self._active:
             self._active = False
             log("[FACE] Désactivation par la FSM (sf.face_active = False)")

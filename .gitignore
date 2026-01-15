@@ -62,3 +62,4 @@ log/
 .DS_Store
 ._.DS_Store
 .vscode
+src/ai_pkg/fsm.log

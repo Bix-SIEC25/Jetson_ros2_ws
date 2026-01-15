@@ -16,7 +16,7 @@ from interfaces.msg import LogEntry
 
 from ai_pkg import state_flags as sf
 from ai_pkg.utils.logger import log
-# from ai_pkg.utils.speaker import say
+from ai_pkg.utils.speaker import say
 
 SERVER_BASE = "https://bix.ovh/add_log"
 
@@ -52,17 +52,17 @@ class QRNode(Node):
 
         # --- Anti faux positifs / paramètres ---
         self.DETECT_EVERY_N_FRAMES = 2     # 1 image sur N (CPU)
-        self.MAX_STABLE = 6               # stabilité "100%" à 6 hits consécutifs
-        self.CONF_THRESHOLD = 0.50        # seuil global confiance
-        self.MIN_CONFIRM_HITS = 1         # nombre de frames (consécutives) au-dessus du seuil
+        self.MAX_STABLE = 1               # stabilité "100%" à 6 hits consécutifs
+        self.CONF_THRESHOLD = 0.40        # seuil global confiance
+        self.MIN_CONFIRM_HITS = 2         # nombre de frames (consécutives) au-dessus du seuil
 
         # Aire QR (dans l'image) -> score
-        self.AREA_MIN = 0.003
-        self.AREA_MAX = 0.030
+        self.AREA_MIN = 0.01
+        self.AREA_MAX = 0.30
 
         # Netteté Laplacien -> score
-        self.SHARP_MIN = 10.0
-        self.SHARP_MAX = 120.0
+        self.SHARP_MIN = 5.0
+        self.SHARP_MAX = 250.0
 
         # --- Etat interne ---
         self._lock = threading.Lock()
@@ -191,12 +191,35 @@ class QRNode(Node):
             return
 
         # Détection QR
-        results = bar.decode(frame)
+        # results = bar.decode(frame)
+
+        gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+        # unsharp mask léger (augmente la lisibilité des modules du QR)
+        blur = cv.GaussianBlur(gray, (0, 0), 1.0)
+        sharp = cv.addWeighted(gray, 1.5, blur, -0.5, 0)
+
+        # binarisation adaptative (souvent magique sur webcam)
+        th = cv.adaptiveThreshold(
+            sharp, 255,
+            cv.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv.THRESH_BINARY,
+            31, 5
+        )
+
+        results = bar.decode(th)
+        if not results:
+            # fallback sur sharp ou gray
+            results = bar.decode(sharp)
+        if not results:
+            results = bar.decode(gray)
+
+
         if not results:
             # Si on ne voit rien, on “relâche” la stabilité
             if self.stable_count > 0:
                 self.stable_count = max(0, self.stable_count - 1)
-            self.confirm_hits = 0
+            self.confirm_hits = max(0, self.confirm_hits - 1)
             return
 
         # Choisir le meilleur QR candidat (par score base)
@@ -230,9 +253,11 @@ class QRNode(Node):
 
         # Confirmation multi-frames au-dessus du seuil
         if confidence >= self.CONF_THRESHOLD:
-            self.confirm_hits += 1
+            self.confirm_hits = min(self.MIN_CONFIRM_HITS, self.confirm_hits + 1)
         else:
-            self.confirm_hits = 0
+            # on pardonne 1-2 frames médiocres au lieu de reset
+            self.confirm_hits = max(0, self.confirm_hits - 1)
+
 
         log(
             f"[QR] candidate='{best_output}' "
@@ -254,6 +279,7 @@ class QRNode(Node):
                     level=1,
                     message=best_output
                 )
+                say(f"{best_output} has been detected")
                 log("[QR] QR Code sent to server: " + best_output)
 
             log("[QR] QR CONFIRMED -> qr_active=False")
