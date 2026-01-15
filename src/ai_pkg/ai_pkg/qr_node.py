@@ -54,7 +54,7 @@ class QRNode(Node):
         self.DETECT_EVERY_N_FRAMES = 2     # 1 image sur N (CPU)
         self.MAX_STABLE = 1               # stabilité "100%" à 6 hits consécutifs
         self.CONF_THRESHOLD = 0.40        # seuil global confiance
-        self.MIN_CONFIRM_HITS = 2         # nombre de frames (consécutives) au-dessus du seuil
+        self.MIN_CONFIRM_HITS = 1         # nombre de frames (consécutives) au-dessus du seuil
 
         # Aire QR (dans l'image) -> score
         self.AREA_MIN = 0.01
