@@ -272,15 +272,14 @@ class QRNode(Node):
             msg_out.data = best_output
             self.publisher_.publish(msg_out)
 
-            if best_output != self.last_logged:
-                self.last_logged = best_output
-                self._send_to_server(
-                    sender="QRNode",
-                    level=1,
-                    message=best_output
-                )
-                say(f"{best_output} has been detected")
-                log("[QR] QR Code sent to server: " + best_output)
+            self.last_logged = best_output
+            self._send_to_server(
+                sender="QRNode",
+                level=1,
+                message=best_output
+            )
+            say(f"{best_output} has been detected")
+            log("[QR] QR Code sent to server: " + best_output)
 
             log("[QR] QR CONFIRMED -> qr_active=False")
             # say("QR code detected.")
