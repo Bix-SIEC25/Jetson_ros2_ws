@@ -19,8 +19,6 @@ TIMEOUT_S = 2.0
 GLOBAL_FRAME = "map"
 BASE_FRAME = "base_link"
 
-SEND_IF_NO_TF = False  # True => envoie x=y=dir=0 si TF pas prêt
-
 
 class StateReporterNode(Node):
     def __init__(self):
@@ -61,9 +59,6 @@ class StateReporterNode(Node):
     def _tick(self):
         pose = self._get_pose_xy_yaw()
         if pose is None:
-            if not SEND_IF_NO_TF:
-                # log("[STATE_REPORT] TF not ready -> skip")
-                return
             x, y, yaw = 0.0, 0.0, 0.0
         else:
             x, y, yaw = pose
