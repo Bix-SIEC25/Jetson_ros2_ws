@@ -81,7 +81,7 @@ class StateReporterNode(Node):
             if r.status_code < 200 or r.status_code >= 300:
                 log(f"[STATE_REPORT] HTTP {r.status_code} | params={params}")
                 return
-            log(f"[STATE_REPORT] ok | x={params['x']} y={params['y']} dir={params['dir']}")
+            # log(f"[STATE_REPORT] ok | x={params['x']} y={params['y']} dir={params['dir']}")
         except requests.RequestException as e:
             log(f"[STATE_REPORT] send failed: {e}")
 

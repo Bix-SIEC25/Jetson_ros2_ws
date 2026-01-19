@@ -5293,3 +5293,709 @@
 [2026-01-16 17:18:27] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
 [2026-01-16 17:18:27] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
 [2026-01-16 17:19:01] [DIALOG] Audio thread stopped
+[2026-01-19 13:23:02] [FSM] Start -> FALL_DETECTION
+[2026-01-19 13:23:02] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:23:02] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:23:02] [QR] Node ready (headless). Subscribed to /image_raw/compressed
+[2026-01-19 13:23:03] [FACE] Device: cuda:0
+[2026-01-19 13:23:03] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2026-01-19 13:23:03] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2026-01-19 13:23:03] [FACE] Database loaded: 26 identities
+[2026-01-19 13:23:05] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2026-01-19 13:23:06] [DIALOG] Loading Vosk model: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/vosk-model-small-en-us-0.15
+[2026-01-19 13:23:07] [DIALOG] Ready. ALSA(hw:0,0) 16000Hz | VAD mode=2 | pre-roll=200ms(10) | post-roll=150ms(7)
+[2026-01-19 13:23:08] [FALL_IA] Device: cuda:0
+[2026-01-19 13:23:14] [FALL_IA] Ready
+[2026-01-19 13:23:14] [MOV_CAR] Started : waiting for /initialpose (set pose in RViz2)
+[2026-01-19 13:23:14] [WAIT_IMAGE_VERIF] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:23:14] [STATE_REPORT] Started: https://bix.ovh/add_state.php every 3.0s | TF map->base_link
+[2026-01-19 13:23:14] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 13:23:18] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:20] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:23] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:26] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:29] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:32] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:35] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:38] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:41] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:44] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:47] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:50] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:53] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:56] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:23:59] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:24:02] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:24:05] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:24:08] [STATE_REPORT] ok | x=0.000 y=0.000 dir=0.000
+[2026-01-19 13:24:43] [FSM] Start -> FALL_DETECTION
+[2026-01-19 13:24:43] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:24:43] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:24:43] [QR] Node ready (headless). Subscribed to /image_raw/compressed
+[2026-01-19 13:24:43] [FACE] Device: cuda:0
+[2026-01-19 13:24:43] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2026-01-19 13:24:43] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2026-01-19 13:24:43] [FACE] Database loaded: 26 identities
+[2026-01-19 13:24:45] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2026-01-19 13:24:45] [DIALOG] Loading Vosk model: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/vosk-model-small-en-us-0.15
+[2026-01-19 13:24:46] [DIALOG] Ready. ALSA(hw:0,0) 16000Hz | VAD mode=2 | pre-roll=200ms(10) | post-roll=150ms(7)
+[2026-01-19 13:24:46] [FALL_IA] Device: cuda:0
+[2026-01-19 13:24:51] [FALL_IA] Ready
+[2026-01-19 13:24:52] [MOV_CAR] Started : waiting for /initialpose (set pose in RViz2)
+[2026-01-19 13:24:52] [WAIT_IMAGE_VERIF] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:24:52] [STATE_REPORT] Started: https://bix.ovh/add_state.php every 3.0s | TF map->base_link
+[2026-01-19 13:24:52] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 13:24:52] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:24:53] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:24:54] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:24:55] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:24:56] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:24:57] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:24:58] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 13:24:58] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 13:24:58] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 13:24:58] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 13:24:58] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 13:25:00] [FACE] Face: Giovanna (0.86)
+[2026-01-19 13:25:05] [STATE_REPORT] send failed: HTTPSConnectionPool(host='bix.ovh', port=443): Max retries exceeded with url: /add_state.php?x=0.000&y=0.000&dir=0.000&wait_car=0&qr=0&face=0&dialog=0&fall_ia=1&mov_car=1&wait_image_verif=0 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xfffeb98507c0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+[2026-01-19 13:25:06] [QR] Server GET OK (200)
+[2026-01-19 13:25:06] [FACE] Face sent to server: Giovanna
+[2026-01-19 13:25:06] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 13:25:06] [TTS]: TalkerNode initialisé
+[2026-01-19 13:25:06] [TTS]: envoi → 'Giovanna has been detected'
+[2026-01-19 13:25:06] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 13:25:06] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 13:25:06] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 13:25:06] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 13:25:51] [FSM] Start -> FALL_DETECTION
+[2026-01-19 13:25:51] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:25:51] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:25:51] [QR] Node ready (headless). Subscribed to /image_raw/compressed
+[2026-01-19 13:25:51] [FACE] Device: cuda:0
+[2026-01-19 13:25:51] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2026-01-19 13:25:51] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2026-01-19 13:25:51] [FACE] Database loaded: 26 identities
+[2026-01-19 13:25:52] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2026-01-19 13:25:52] [DIALOG] Loading Vosk model: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/vosk-model-small-en-us-0.15
+[2026-01-19 13:25:53] [DIALOG] Ready. ALSA(hw:0,0) 16000Hz | VAD mode=2 | pre-roll=200ms(10) | post-roll=150ms(7)
+[2026-01-19 13:25:54] [FALL_IA] Device: cuda:0
+[2026-01-19 13:25:59] [FALL_IA] Ready
+[2026-01-19 13:26:00] [MOV_CAR] Started : waiting for /initialpose (set pose in RViz2)
+[2026-01-19 13:26:00] [WAIT_IMAGE_VERIF] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:26:01] [STATE_REPORT] Started: https://bix.ovh/add_state.php every 3.0s | TF map->base_link
+[2026-01-19 13:26:01] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 13:26:04] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 13:26:04] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 13:26:04] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 13:26:04] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 13:26:04] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 13:26:05] [FACE] Face: Giovanna (0.86)
+[2026-01-19 13:26:05] [QR] Server GET OK (200)
+[2026-01-19 13:26:05] [FACE] Face sent to server: Giovanna
+[2026-01-19 13:26:05] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 13:26:05] [TTS]: TalkerNode initialisé
+[2026-01-19 13:26:05] [TTS]: envoi → 'Giovanna has been detected'
+[2026-01-19 13:26:05] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 13:26:05] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 13:26:05] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 13:26:05] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 13:52:52] [FSM] Start -> FALL_DETECTION
+[2026-01-19 13:52:52] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:52:52] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:52:52] [QR] Node ready (headless). Subscribed to /image_raw/compressed
+[2026-01-19 13:52:52] [FACE] Device: cuda:0
+[2026-01-19 13:52:52] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2026-01-19 13:52:52] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2026-01-19 13:52:52] [FACE] Database loaded: 26 identities
+[2026-01-19 13:53:36] [FSM] Start -> FALL_DETECTION
+[2026-01-19 13:53:36] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:53:36] [WAIT_CAR] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:53:36] [QR] Node ready (headless). Subscribed to /image_raw/compressed
+[2026-01-19 13:53:36] [FACE] Device: cuda:0
+[2026-01-19 13:53:36] [FACE] Loading embeddings from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/embeddings.npy
+[2026-01-19 13:53:36] [FACE] Loading names from: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/names.npy
+[2026-01-19 13:53:36] [FACE] Database loaded: 26 identities
+[2026-01-19 13:53:37] [FACE] FaceNode started! Subscribed to /image_raw/compressed
+[2026-01-19 13:53:38] [DIALOG] Loading Vosk model: /home/jetson/ros2_ws/install/ai_pkg/share/ai_pkg/models/vosk-model-small-en-us-0.15
+[2026-01-19 13:53:39] [DIALOG] Ready. ALSA(hw:0,0) 16000Hz | VAD mode=2 | pre-roll=200ms(10) | post-roll=150ms(7)
+[2026-01-19 13:53:39] [FALL_IA] Device: cuda:0
+[2026-01-19 13:53:46] [FALL_IA] Ready
+[2026-01-19 13:53:46] [MOV_CAR] Started : waiting for /initialpose (set pose in RViz2)
+[2026-01-19 13:53:46] [WAIT_IMAGE_VERIF] Node initialisé, en attente d'activation FSM.
+[2026-01-19 13:53:46] [STATE_REPORT] Started: https://bix.ovh/add_state.php every 3.0s | TF map->base_link
+[2026-01-19 13:53:46] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 13:53:46] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:53:47] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:53:48] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:53:49] [DIALOG] ⚠️ TTS server /say not available (retrying).
+[2026-01-19 13:53:59] [STATE_REPORT] send failed: HTTPSConnectionPool(host='bix.ovh', port=443): Max retries exceeded with url: /add_state.php?x=0.000&y=0.000&dir=0.000&wait_car=0&qr=0&face=0&dialog=0&fall_ia=1&mov_car=1&wait_image_verif=0 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xfffecbf59de0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+[2026-01-19 13:55:05] [MOV_CAR] someone_fell=True -> STOP + RET_FALL_ACCEL
+[2026-01-19 13:55:05] [FSM] FALL_DETECTION: MOV_CAR finished first -> stop FALL_IA
+[2026-01-19 13:55:05] [FSM] FALL_DETECTION terminé -> branch=ACCEL -> WAIT_CAR
+[2026-01-19 13:55:05] [FSM] WAIT_CAR activé | [FSM] state=WAIT_CAR | fall_ia=False, mov_car=False, wait_car=True, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:55:05] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2026-01-19 13:55:10] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2026-01-19 13:55:10] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2026-01-19 13:55:10] [TTS]: TalkerNode initialisé
+[2026-01-19 13:55:10] [TTS]: envoi → 'Arrived'
+[2026-01-19 13:55:10] [FSM] WAIT_CAR terminé -> RESIDENT_RECOGNITION
+[2026-01-19 13:55:10] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 13:55:10] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 13:55:16] [FACE] Face: UNKNOWN (1.04)
+[2026-01-19 13:55:17] [FACE] Face: Gaspar (0.73)
+[2026-01-19 13:55:18] [QR] Server GET OK (200)
+[2026-01-19 13:55:18] [FACE] Face sent to server: Gaspar
+[2026-01-19 13:55:18] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 13:55:18] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 13:55:18] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 13:55:18] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 13:55:18] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 13:55:18] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 13:55:18] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 13:55:58] [WAIT_IMAGE_VERIF] Reçu /image_verified = False
+[2026-01-19 13:55:58] [WAIT_IMAGE_VERIF] Image non vérifiée -> NOT_VERIFIED
+[2026-01-19 13:55:58] [TTS]: envoi → 'The image has not been verified'
+[2026-01-19 13:55:58] [FSM] FALL_VERIFICATION -> NOT_VERIFIED -> FALL_DETECTION
+[2026-01-19 13:55:58] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:55:58] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 13:56:10] [MOV_CAR] someone_fell=True -> STOP + RET_FALL_ACCEL
+[2026-01-19 13:56:10] [FSM] FALL_DETECTION: MOV_CAR finished first -> stop FALL_IA
+[2026-01-19 13:56:10] [FSM] FALL_DETECTION terminé -> branch=ACCEL -> WAIT_CAR
+[2026-01-19 13:56:10] [FSM] WAIT_CAR activé | [FSM] state=WAIT_CAR | fall_ia=False, mov_car=False, wait_car=True, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:56:10] [WAIT_CAR] Activation par la FSM → attente du signal /car_arrived_to_fall
+[2026-01-19 13:56:16] [WAIT_CAR] Signal reçu : car_arrived_to_fall = TRUE
+[2026-01-19 13:56:16] [WAIT_CAR] Voiture détectée -> Fin d'étape WAIT_CAR → wait_car_active = False
+[2026-01-19 13:56:16] [TTS]: envoi → 'Arrived'
+[2026-01-19 13:56:16] [FSM] WAIT_CAR terminé -> RESIDENT_RECOGNITION
+[2026-01-19 13:56:16] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 13:56:17] [FACE] Face: UNKNOWN (1.15)
+[2026-01-19 13:56:17] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 13:56:17] [FACE] Face: UNKNOWN (1.17)
+[2026-01-19 13:56:18] [FACE] Face: UNKNOWN (1.11)
+[2026-01-19 13:56:18] [FACE] Face: UNKNOWN (1.16)
+[2026-01-19 13:56:19] [FACE] Face: UNKNOWN (1.14)
+[2026-01-19 13:56:19] [FACE] Face: UNKNOWN (1.08)
+[2026-01-19 13:56:20] [FACE] Face: Gaspar (0.76)
+[2026-01-19 13:56:20] [QR] Server GET OK (200)
+[2026-01-19 13:56:20] [FACE] Face sent to server: Gaspar
+[2026-01-19 13:56:20] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 13:56:20] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 13:56:20] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 13:56:20] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 13:56:20] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 13:56:20] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 13:56:20] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 13:56:25] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 13:56:25] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 13:56:25] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 13:56:25] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 13:56:25] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 13:56:25] [DIALOG] Starting capture: arecord -D hw:0,0 -f S16_LE -c 1 -r 16000 -t raw -q
+[2026-01-19 13:56:25] [DIALOG] Session started
+[2026-01-19 13:56:25] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 13:56:27] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 13:56:28] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 13:56:28] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 13:56:28] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 13:56:29] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 13:56:29] [DIALOG] DETECTED (final): YES (conf=1.00) step=ASK_OK
+[2026-01-19 13:56:29] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 13:56:32] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 13:56:34] [DIALOG] DETECTED (final): MONDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 13:56:34] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 13:56:38] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 13:56:41] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 13:56:41] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 13:56:41] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 13:56:43] [DIALOG] DETECTED (final): HOSPITAL (conf=1.00) step=ASK_PLACE
+[2026-01-19 13:56:43] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 13:56:43] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 13:56:53] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 13:56:53] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 13:56:53] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 13:56:53] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 13:56:53] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:01:45] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:01:45] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:01:45] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:01:45] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:01:45] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:01:46] [FACE] Face: UNKNOWN (1.04)
+[2026-01-19 14:01:46] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 14:01:46] [FACE] Face: UNKNOWN (1.07)
+[2026-01-19 14:01:47] [FACE] Face: UNKNOWN (1.14)
+[2026-01-19 14:01:47] [FACE] Face: UNKNOWN (1.12)
+[2026-01-19 14:01:48] [FACE] Face: UNKNOWN (1.15)
+[2026-01-19 14:01:48] [FACE] Face: UNKNOWN (1.12)
+[2026-01-19 14:01:48] [FACE] Face: UNKNOWN (1.18)
+[2026-01-19 14:01:49] [FACE] Face: UNKNOWN (1.14)
+[2026-01-19 14:01:49] [FACE] Face: UNKNOWN (1.10)
+[2026-01-19 14:01:50] [FACE] Face: UNKNOWN (1.10)
+[2026-01-19 14:01:50] [FACE] Face: UNKNOWN (1.11)
+[2026-01-19 14:01:50] [FACE] Face: UNKNOWN (1.09)
+[2026-01-19 14:01:51] [FACE] Face: UNKNOWN (1.10)
+[2026-01-19 14:01:51] [FACE] Face: UNKNOWN (1.05)
+[2026-01-19 14:01:52] [FACE] Face: UNKNOWN (0.96)
+[2026-01-19 14:01:52] [FACE] Face: Gaspar (0.77)
+[2026-01-19 14:01:52] [QR] Server GET OK (200)
+[2026-01-19 14:01:52] [FACE] Face sent to server: Gaspar
+[2026-01-19 14:01:52] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:01:52] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 14:01:52] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 14:01:52] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:01:53] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:01:53] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:01:53] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:05:57] [WAIT_IMAGE_VERIF] Reçu /image_verified = False
+[2026-01-19 14:05:57] [WAIT_IMAGE_VERIF] Image non vérifiée -> NOT_VERIFIED
+[2026-01-19 14:05:57] [TTS]: envoi → 'The image has not been verified'
+[2026-01-19 14:05:57] [FSM] FALL_VERIFICATION -> NOT_VERIFIED -> FALL_DETECTION
+[2026-01-19 14:05:57] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:05:57] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:06:06] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:06:06] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:06:06] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:06:06] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:06:06] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:06:06] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 14:06:07] [FACE] Face: UNKNOWN (1.16)
+[2026-01-19 14:06:08] [FACE] Face: Giovanna (0.78)
+[2026-01-19 14:06:08] [QR] Server GET OK (200)
+[2026-01-19 14:06:08] [FACE] Face sent to server: Giovanna
+[2026-01-19 14:06:08] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:06:08] [TTS]: envoi → 'Giovanna has been detected'
+[2026-01-19 14:06:08] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 14:06:08] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:06:08] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:06:08] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:06:08] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:06:15] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 14:06:15] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 14:06:15] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 14:06:15] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 14:06:15] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 14:06:15] [DIALOG] Session started
+[2026-01-19 14:06:15] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 14:06:17] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:06:19] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:06:19] [DIALOG] DETECTED (final): YES (conf=1.00) step=ASK_OK
+[2026-01-19 14:06:19] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 14:06:23] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:06:24] [DIALOG] DETECTED (final): MONDAY (conf=0.94) step=ASK_DAY
+[2026-01-19 14:06:24] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 14:06:28] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:06:29] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:06:29] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:06:29] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:06:30] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:06:30] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:06:30] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:06:32] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:06:33] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:06:33] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:06:33] [DIALOG] DETECTED (final): HOSPITAL (conf=1.00) step=ASK_PLACE
+[2026-01-19 14:06:33] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 14:06:33] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 14:06:43] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 14:06:43] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 14:06:43] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:06:43] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 14:06:43] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:07:55] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:07:55] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:07:55] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:07:55] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:07:55] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:07:55] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 14:08:50] [QR] candidate='Sammy' stable=1/1 confirm_hits=1/1 conf=0.76
+[2026-01-19 14:08:50] [QR] Server GET OK (200)
+[2026-01-19 14:08:50] [TTS]: envoi → 'Sammy has been detected'
+[2026-01-19 14:08:50] [QR] QR Code sent to server: Sammy
+[2026-01-19 14:08:51] [QR] QR CONFIRMED -> qr_active=False
+[2026-01-19 14:08:51] [FSM] RESIDENT_RECOGNITION: QR finished first -> stop FACE
+[2026-01-19 14:08:51] [FSM] RESIDENT_RECOGNITION terminé (winner=QR) -> FALL_VERIFICATION
+[2026-01-19 14:08:51] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:08:51] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:08:51] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 14:09:01] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 14:09:01] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 14:09:01] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 14:09:01] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 14:09:01] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 14:09:01] [DIALOG] Session started
+[2026-01-19 14:09:01] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 14:09:03] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:05] [DIALOG] DETECTED (final): YES (conf=1.00) step=ASK_OK
+[2026-01-19 14:09:05] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 14:09:08] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:09] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:09:09] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:09:09] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:10] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:09:10] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:09:11] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:12] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:09:12] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:09:13] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:14] [DIALOG] DETECTED (final): TUESDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 14:09:14] [DIALOG] 🗣️ (queue) I did not understand. That is not correct. Today is monday. Please repeat.
+[2026-01-19 14:09:14] [DIALOG] 🗣️ (queue) What day is it today?
+[2026-01-19 14:09:22] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:23] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:09:23] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:09:23] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:23] [DIALOG] DETECTED (final): MONDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 14:09:23] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 14:09:27] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:09:29] [DIALOG] DETECTED (final): HOME (conf=0.84) step=ASK_PLACE
+[2026-01-19 14:09:29] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 14:09:29] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 14:09:39] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 14:09:39] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 14:09:39] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:09:39] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 14:09:40] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:13:36] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:13:36] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:13:36] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:13:36] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:13:36] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:13:36] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 14:14:17] [FACE] Face: Gaspar (0.80)
+[2026-01-19 14:14:17] [QR] Server GET OK (200)
+[2026-01-19 14:14:17] [FACE] Face sent to server: Gaspar
+[2026-01-19 14:14:17] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:14:17] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 14:14:17] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 14:14:17] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:14:17] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:14:17] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:14:17] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:14:34] [WAIT_IMAGE_VERIF] Reçu /image_verified = False
+[2026-01-19 14:14:34] [WAIT_IMAGE_VERIF] Image non vérifiée -> NOT_VERIFIED
+[2026-01-19 14:14:34] [TTS]: envoi → 'The image has not been verified'
+[2026-01-19 14:14:34] [FSM] FALL_VERIFICATION -> NOT_VERIFIED -> FALL_DETECTION
+[2026-01-19 14:14:34] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:14:35] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:19:24] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:19:24] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:19:24] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:19:24] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:19:24] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:19:25] [FACE] Face: UNKNOWN (1.03)
+[2026-01-19 14:19:25] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 14:19:25] [FACE] Face: UNKNOWN (1.10)
+[2026-01-19 14:19:26] [FACE] Face: UNKNOWN (0.91)
+[2026-01-19 14:19:26] [FACE] Face: Giovanna (0.86)
+[2026-01-19 14:19:26] [QR] Server GET OK (200)
+[2026-01-19 14:19:26] [FACE] Face sent to server: Giovanna
+[2026-01-19 14:19:26] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:19:26] [TTS]: envoi → 'Giovanna has been detected'
+[2026-01-19 14:19:26] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 14:19:26] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:19:26] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:19:26] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:19:26] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:19:32] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 14:19:32] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 14:19:32] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 14:19:32] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 14:19:32] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 14:19:32] [DIALOG] Session started
+[2026-01-19 14:19:32] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 14:19:35] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:19:36] [DIALOG] DETECTED (final): NO (conf=0.72) step=ASK_OK
+[2026-01-19 14:19:36] [DIALOG] 🗣️ (queue) Could you repeat: are you okay?
+[2026-01-19 14:19:39] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:19:40] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:40] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:19:42] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:19:45] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:47] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:47] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:48] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:48] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:49] [DIALOG] 🗣️ (queue) I did not understand. Please answer now.
+[2026-01-19 14:19:49] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 14:19:54] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:19:55] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:19:56] [DIALOG] DETECTED (final): YES (conf=1.00) step=ASK_OK
+[2026-01-19 14:19:56] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 14:19:59] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:00] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:20:01] [DIALOG] DETECTED (final): MONDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 14:20:01] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 14:20:05] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:06] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:20:06] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:20:07] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:08] [DIALOG] DETECTED (final): HOME (conf=0.00) step=ASK_PLACE
+[2026-01-19 14:20:08] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 14:20:08] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 14:20:18] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 14:20:18] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 14:20:18] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:20:18] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 14:20:18] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:20:19] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:20:19] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:20:19] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:20:19] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:20:19] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:20:19] [FACE] Face: Giovanna (0.74)
+[2026-01-19 14:20:20] [QR] Server GET OK (200)
+[2026-01-19 14:20:20] [FACE] Face sent to server: Giovanna
+[2026-01-19 14:20:20] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:20:20] [TTS]: envoi → 'Giovanna has been detected'
+[2026-01-19 14:20:20] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:20:20] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:20:20] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:20:20] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:20:23] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 14:20:23] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 14:20:23] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 14:20:23] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 14:20:23] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 14:20:23] [DIALOG] Session started
+[2026-01-19 14:20:23] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 14:20:26] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:27] [DIALOG] DETECTED (final): YES (conf=0.61) step=ASK_OK
+[2026-01-19 14:20:27] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 14:20:30] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:32] [DIALOG] DETECTED (final): MONDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 14:20:32] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 14:20:36] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:37] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:20:37] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:20:39] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:43] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:20:43] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:20:43] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:46] [DIALOG] 🗣️ (queue) I did not understand. Please answer now.
+[2026-01-19 14:20:46] [DIALOG] 🗣️ (queue) Where are you? Home or hospital.
+[2026-01-19 14:20:52] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:54] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:20:54] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:20:54] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:20:54] [DIALOG] DETECTED (final): HOSPITAL (conf=1.00) step=ASK_PLACE
+[2026-01-19 14:20:54] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 14:20:54] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 14:21:04] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 14:21:04] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 14:21:04] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:21:04] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 14:21:04] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:22:50] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:22:50] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:22:50] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:22:50] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:22:50] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:22:50] [FACE] Face: UNKNOWN (1.09)
+[2026-01-19 14:22:50] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 14:22:51] [FACE] Face: UNKNOWN (0.93)
+[2026-01-19 14:22:51] [FACE] Face: UNKNOWN (1.11)
+[2026-01-19 14:22:51] [FACE] Face: Gaspar (0.75)
+[2026-01-19 14:22:52] [QR] Server GET OK (200)
+[2026-01-19 14:22:52] [FACE] Face sent to server: Gaspar
+[2026-01-19 14:22:52] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:22:52] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 14:22:52] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 14:22:52] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:22:52] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:22:52] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:22:52] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:38:40] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 14:38:40] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 14:38:40] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 14:38:40] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 14:38:40] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 14:38:40] [DIALOG] Session started
+[2026-01-19 14:38:40] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:40] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 14:38:43] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:44] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:38:44] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:38:45] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:45] [DIALOG] DETECTED (final): YES (conf=1.00) step=ASK_OK
+[2026-01-19 14:38:45] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 14:38:48] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:49] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:38:49] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:38:49] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:50] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:38:50] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:38:52] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:52] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:38:52] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:38:54] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:38:54] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:38:55] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:38:55] [DIALOG] DETECTED (final): MONDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 14:38:55] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 14:38:59] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:39:02] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:39:02] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:39:03] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:39:04] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:39:04] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 14:39:05] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:39:08] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 14:39:09] [DIALOG] 🗣️ (queue) I did not understand. Please answer now.
+[2026-01-19 14:39:09] [DIALOG] 🗣️ (queue) Where are you? Home or hospital.
+[2026-01-19 14:39:15] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 14:39:17] [DIALOG] DETECTED (final): HOSPITAL (conf=1.00) step=ASK_PLACE
+[2026-01-19 14:39:17] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 14:39:17] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 14:39:27] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 14:39:27] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 14:39:27] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:39:27] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 14:39:27] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 14:42:36] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 14:42:36] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 14:42:36] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 14:42:36] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 14:42:36] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 14:42:36] [FACE] Face: Gaspar (0.85)
+[2026-01-19 14:42:37] [QR] Server GET OK (200)
+[2026-01-19 14:42:37] [FACE] Face sent to server: Gaspar
+[2026-01-19 14:42:37] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 14:42:37] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 14:42:37] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 14:42:37] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 14:42:37] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 14:42:37] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 14:42:42] [WAIT_IMAGE_VERIF] Reçu /image_verified = False
+[2026-01-19 14:42:42] [WAIT_IMAGE_VERIF] Image non vérifiée -> NOT_VERIFIED
+[2026-01-19 14:42:42] [TTS]: envoi → 'The image has not been verified'
+[2026-01-19 14:42:42] [FSM] FALL_VERIFICATION -> NOT_VERIFIED -> FALL_DETECTION
+[2026-01-19 14:42:42] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 14:42:42] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 15:11:36] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 15:11:36] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 15:11:36] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 15:11:37] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 15:11:37] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 15:11:37] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 15:11:37] [FACE] Face: UNKNOWN (1.09)
+[2026-01-19 15:11:38] [FACE] Face: UNKNOWN (1.12)
+[2026-01-19 15:11:39] [FACE] Face: UNKNOWN (1.11)
+[2026-01-19 15:11:39] [FACE] Face: UNKNOWN (1.04)
+[2026-01-19 15:11:40] [FACE] Face: UNKNOWN (1.06)
+[2026-01-19 15:11:40] [FACE] Face: UNKNOWN (1.19)
+[2026-01-19 15:11:41] [FACE] Face: UNKNOWN (1.15)
+[2026-01-19 15:11:43] [FACE] Face: UNKNOWN (0.91)
+[2026-01-19 15:11:44] [FACE] Face: UNKNOWN (1.10)
+[2026-01-19 15:11:45] [FACE] Face: UNKNOWN (1.15)
+[2026-01-19 15:11:47] [FACE] Face: UNKNOWN (1.14)
+[2026-01-19 15:11:47] [FACE] Face: UNKNOWN (1.17)
+[2026-01-19 15:11:48] [FACE] Face: UNKNOWN (1.13)
+[2026-01-19 15:11:48] [FACE] Face: UNKNOWN (1.07)
+[2026-01-19 15:11:50] [FACE] Face: UNKNOWN (1.16)
+[2026-01-19 15:11:51] [FACE] Face: UNKNOWN (1.16)
+[2026-01-19 15:11:53] [FACE] Face: UNKNOWN (1.01)
+[2026-01-19 15:11:56] [FACE] Face: UNKNOWN (1.26)
+[2026-01-19 15:11:56] [FACE] Face: UNKNOWN (1.13)
+[2026-01-19 15:11:57] [FACE] Face: Gaspar (0.75)
+[2026-01-19 15:11:57] [QR] Server GET OK (200)
+[2026-01-19 15:11:57] [FACE] Face sent to server: Gaspar
+[2026-01-19 15:11:57] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 15:11:57] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 15:11:57] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 15:11:57] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 15:11:57] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 15:11:57] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 15:11:57] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 15:12:25] [WAIT_IMAGE_VERIF] Reçu /image_verified = False
+[2026-01-19 15:12:25] [WAIT_IMAGE_VERIF] Image non vérifiée -> NOT_VERIFIED
+[2026-01-19 15:12:25] [TTS]: envoi → 'The image has not been verified'
+[2026-01-19 15:12:25] [FSM] FALL_VERIFICATION -> NOT_VERIFIED -> FALL_DETECTION
+[2026-01-19 15:12:25] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 15:12:25] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 15:12:32] [FALL_IA] fall detected (streak=1/1)
+[2026-01-19 15:12:32] [FALL_IA] FALL CONFIRMED -> stop self, set return_val
+[2026-01-19 15:12:32] [FSM] FALL_DETECTION: FALL_IA finished first -> stop MOV_CAR
+[2026-01-19 15:12:32] [FSM] FALL_DETECTION terminé -> branch=AI -> RESIDENT_RECOGNITION
+[2026-01-19 15:12:32] [FSM] RESIDENT_RECOGNITION activé | [FSM] state=RESIDENT_RECOGNITION | fall_ia=False, mov_car=False, wait_car=False, face=True, qr=True, verif=False, dialog=False, return_val=0
+[2026-01-19 15:12:33] [FACE] Face: UNKNOWN (1.21)
+[2026-01-19 15:12:33] [FACE] Activation par la FSM (sf.face_active = True)
+[2026-01-19 15:12:33] [FACE] Face: UNKNOWN (1.13)
+[2026-01-19 15:12:33] [FACE] Face: UNKNOWN (1.19)
+[2026-01-19 15:12:34] [FACE] Face: UNKNOWN (1.24)
+[2026-01-19 15:12:34] [FACE] Face: UNKNOWN (1.22)
+[2026-01-19 15:12:35] [FACE] Face: UNKNOWN (1.13)
+[2026-01-19 15:12:35] [FACE] Face: UNKNOWN (1.11)
+[2026-01-19 15:12:35] [FACE] Face: UNKNOWN (1.18)
+[2026-01-19 15:12:36] [FACE] Face: UNKNOWN (1.15)
+[2026-01-19 15:12:36] [FACE] Face: UNKNOWN (1.11)
+[2026-01-19 15:12:36] [FACE] Face: UNKNOWN (1.18)
+[2026-01-19 15:12:37] [FACE] Face: UNKNOWN (1.10)
+[2026-01-19 15:12:37] [FACE] Face: UNKNOWN (1.13)
+[2026-01-19 15:12:38] [FACE] Face: UNKNOWN (1.16)
+[2026-01-19 15:12:38] [FACE] Face: UNKNOWN (1.17)
+[2026-01-19 15:12:39] [FACE] Face: UNKNOWN (1.13)
+[2026-01-19 15:12:39] [FACE] Face: UNKNOWN (1.21)
+[2026-01-19 15:12:39] [FACE] Face: UNKNOWN (1.17)
+[2026-01-19 15:12:40] [FACE] Face: UNKNOWN (1.07)
+[2026-01-19 15:12:40] [FACE] Face: UNKNOWN (0.91)
+[2026-01-19 15:12:41] [FACE] Face: UNKNOWN (1.16)
+[2026-01-19 15:12:49] [FACE] Face: UNKNOWN (0.96)
+[2026-01-19 15:12:53] [FACE] Face: UNKNOWN (1.19)
+[2026-01-19 15:12:54] [FACE] Face: UNKNOWN (1.12)
+[2026-01-19 15:13:05] [FACE] Face: UNKNOWN (1.12)
+[2026-01-19 15:13:05] [FACE] Face: UNKNOWN (1.22)
+[2026-01-19 15:13:06] [FACE] Face: UNKNOWN (0.97)
+[2026-01-19 15:13:06] [FACE] Face: UNKNOWN (1.09)
+[2026-01-19 15:13:06] [FACE] Face: UNKNOWN (1.17)
+[2026-01-19 15:13:07] [FACE] Face: UNKNOWN (1.22)
+[2026-01-19 15:13:07] [FACE] Face: UNKNOWN (1.12)
+[2026-01-19 15:13:08] [FACE] Face: Gaspar (0.83)
+[2026-01-19 15:13:08] [QR] Server GET OK (200)
+[2026-01-19 15:13:08] [FACE] Face sent to server: Gaspar
+[2026-01-19 15:13:08] [FACE] Visage connu détecté, fin de l'étape FACE → sf.face_active = False
+[2026-01-19 15:13:08] [TTS]: envoi → 'Gaspar has been detected'
+[2026-01-19 15:13:08] [FACE] Désactivation par la FSM (sf.face_active = False)
+[2026-01-19 15:13:08] [FSM] RESIDENT_RECOGNITION: FACE finished first -> stop QR
+[2026-01-19 15:13:08] [FSM] RESIDENT_RECOGNITION terminé (winner=FACE) -> FALL_VERIFICATION
+[2026-01-19 15:13:08] [FSM] FALL_VERIFICATION activé | [FSM] state=FALL_VERIFICATION | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=True, dialog=False, return_val=0
+[2026-01-19 15:13:08] [WAIT_IMAGE_VERIF] Activation par la FSM → attente du signal /image_verified
+[2026-01-19 15:13:16] [WAIT_IMAGE_VERIF] Reçu /image_verified = True
+[2026-01-19 15:13:16] [WAIT_IMAGE_VERIF] Image vérifiée -> VERIFIED
+[2026-01-19 15:13:16] [TTS]: envoi → 'The image has been verified'
+[2026-01-19 15:13:16] [FSM] FALL_VERIFICATION -> VERIFIED -> DIALOG
+[2026-01-19 15:13:16] [FSM] DIALOG activé | [FSM] state=DIALOG | fall_ia=False, mov_car=False, wait_car=False, face=False, qr=False, verif=False, dialog=True, return_val=0
+[2026-01-19 15:13:16] [DIALOG] Session started
+[2026-01-19 15:13:16] [DIALOG] 🗣️ (queue) Are you okay?
+[2026-01-19 15:13:18] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:19] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 15:13:19] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 15:13:20] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:20] [DIALOG] DETECTED (final): YES (conf=1.00) step=ASK_OK
+[2026-01-19 15:13:20] [DIALOG] 🗣️ (queue) Thank you. What day is it today?
+[2026-01-19 15:13:24] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:25] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 15:13:25] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 15:13:26] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:26] [DIALOG] DETECTED (final): MONDAY (conf=1.00) step=ASK_DAY
+[2026-01-19 15:13:26] [DIALOG] 🗣️ (queue) Thank you. Where are you? Home or hospital?
+[2026-01-19 15:13:30] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:30] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 15:13:31] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 15:13:31] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:31] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 15:13:31] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 15:13:32] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:32] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 15:13:32] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 15:13:33] [DIALOG] VAD: speech start -> send pre-roll
+[2026-01-19 15:13:34] [DIALOG] VAD: speech end -> post-roll 7 frames
+[2026-01-19 15:13:34] [DIALOG] VAD: post-roll done -> flush silence & stop speech
+[2026-01-19 15:13:34] [DIALOG] DETECTED (final): HOSPITAL (conf=1.00) step=ASK_PLACE
+[2026-01-19 15:13:34] [DIALOG] 🗣️ (queue) Thank you. You seem conscious and oriented.
+[2026-01-19 15:13:34] [DIALOG] Session finished -> cooldown 10.0s before dialog_active=False
+[2026-01-19 15:13:44] [DIALOG] Cooldown done -> dialog_active=False (FSM can advance)
+[2026-01-19 15:13:44] [FSM] DIALOG terminé -> FALL_DETECTION
+[2026-01-19 15:13:44] [FSM] FALL_DETECTION activé | [FSM] state=FALL_DETECTION | fall_ia=True, mov_car=True, wait_car=False, face=False, qr=False, verif=False, dialog=False, return_val=0
+[2026-01-19 15:13:45] [DIALOG] FSM disabled dialog_active -> stop session (silent)
+[2026-01-19 15:13:45] [MOV_CAR] Enter MOV_CAR but no /initialpose yet -> waiting
+[2026-01-19 15:14:50] [DIALOG] Audio thread stopped
