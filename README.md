@@ -1,6 +1,6 @@
 # Jetson_ros2_ws
 
-Workspace **ROS2 Humble** destiné à faire tourner la stack "robot autonome" sur **NVIDIA Jetson** (capteurs + navigation + IA), avec notamment :
+Workspace **ROS2 Humble** destiné à faire tourner la stack "robot autonome" sur **NVIDIA Jetson Orin Nano** (capteurs + navigation + IA), avec notamment :
 
 - **LiDAR** (publication `/scan`)
 - **Caméra USB** (publication `/image_raw`)
@@ -11,23 +11,18 @@ Workspace **ROS2 Humble** destiné à faire tourner la stack "robot autonome" su
 
 > Objectif : une seule commande de launch pour démarrer la pile complète sur la Jetson.
 
-## Arborescence logique (ce que contient le workspace)
+## Arborescence
 
-Les fichiers fournis dans ce workspace montrent au minimum ces briques :
-
-- `car_description/`  
-  - `urdf/car.urdf.xacro` : description TF minimale (base + LiDAR)
-  - `launch/robot_state_publisher.launch.py` : publication `/tf` via URDF
-
-- `cmd_vel_conv/`  
-  - `src/cmd_vel_to_motors_node.cpp` : conversion `geometry_msgs/Twist` → `interfaces/MotorsOrder`
-
-- `slam/`
-  - `nav2.yaml` : configuration Nav2 (AMCL, planner, controller, costmaps…)
-  - `gei_0.yaml` : carte (map server)
-
-- `geicar_bringup/` 
-  - `launch/geicar.jetson.launch.py` : launch "full bringup" Jetson
+- `src/` : paquets ROS 2
+  - `ai_pkg/` : Un des pkgs les plus important du ws, il contient toute la logique de la machine à état
+  - `audio_common/` : envoie des messages TTS et des sons de klaxons à l'enceinte
+  - `car_description/` : description de la size de la voiture
+  - `interfaces/` : messages ROS personnalisés (`.msg`)
+  - `system_check/` : check communications + report
+  - `watchdog/` : surveillance (selon implémentation)
+  - `rf2o_laser_odometry/` : permet de publier l'odométrie de la voiture
+  - `geicar_start_jetson/` : launch principal
+  - `sllidar_ros2/` : permet de publier le topic `\scan` contenant les frames du LiDAR
 
 
 ## Quickstart
@@ -50,10 +45,9 @@ source install/setup.bash
 ### 3) Lancer la stack complète Jetson
 Le launch principal démarre caméra + LiDAR + TF + rf2o + Nav2 + scénario IA :
 ```bash
-ros2 launch geicar_start geicar.jetson.launch.py
+ros2 launch geicar_start_jetson geicar.jetson.launch.py
 ```
 
----
 
 ## Launch
 
@@ -98,45 +92,3 @@ Démarre :
 7. **IA / scénario**
    - package `ai_pkg`, executable `ai_scenario`
 
-
-## Topics, messages et TF
-
-### Commande robot
-- **Entrée standard** : `/cmd_vel` (`geometry_msgs/Twist`)
-- **Sortie commande bas niveau** : `/motors_order_raw` (`interfaces/msg/MotorsOrder`)
-
-### Conversion `cmd_vel` → PWM (node `cmd_vel_to_motors_node`)
-Paramètres (par défaut) :
-- `max_throttle = 1.0` (m/s)
-- `max_steering = 0.5` (rad/s)
-- `steering_gain = 1.4`
-- throttle : `center=50`, `range=50`  → PWM dans **[0..100]** avec stop à 50
-- steering : `center=0`, `range=100` → PWM dans **[-100..100]** avec neutre à 0
-
-### Frames TF
-- `base_link` : base du robot
-- `scan` : frame du LiDAR (utilisée dans le launch et dans `sllidar_node`)
-- Le TF statique actuel publie `base_link -> scan`.
-
-✅ Recommandation : **choisir un seul frame LiDAR** (`scan` *ou* `laser`) et être cohérent partout :
-- soit tu modifies le xacro pour publier `base_link -> scan`
-- soit tu gardes `laser` dans l’URDF et tu adaptes `frame_id` côté LiDAR + TF statique
-
----
-
-## Nav2 (AMCL + planner + controller)
-
-Le fichier `nav2.yaml` contient les paramètres principaux :
-- `amcl` (localisation)
-- `planner_server` (planner)
-- `controller_server` (suivi de trajectoire)
-- `global_costmap` / `local_costmap`
-- `bt_navigator` / `behavior_server`
-
-### À vérifier / adapter
-- **Chemins map & params** : dans `geicar.jetson.launch.py`, les chemins sont **absolus**.  
-  Si tu déplaces le workspace ou changes d’utilisateur, ça cassera.
-
-👉 Bonne pratique (à faire quand tu auras le temps) : remplacer par des chemins basés sur `FindPackageShare(...)` pour rendre le launch portable.
-
----
