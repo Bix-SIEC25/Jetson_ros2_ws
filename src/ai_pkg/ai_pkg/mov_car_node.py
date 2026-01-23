@@ -4,6 +4,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
+import requests
 
 from std_msgs.msg import Bool
 from geometry_msgs.msg import PoseStamped, PoseWithCovarianceStamped
@@ -91,6 +92,19 @@ class MovCarNode(Node):
             10,
             callback_group=self.cb_group
         )
+
+        try:
+            url = "https://bix.ovh/add_log"
+            params = {
+                "sender": "state",
+                "type": 3,
+                "msg": "patrolling"
+            }
+            r = requests.get(url, params=params, timeout=3.0)
+            log(f"[MOV_CAR] Remote log sent (status={r.status_code})")
+        except Exception as e:
+            log(f"[MOV_CAR] Remote log failed: {e}")
+
 
         self._timer = self.create_timer(0.2, self._tick, callback_group=self.cb_group)
         log("[MOV_CAR] Started : waiting for /initialpose (set pose in RViz2)")

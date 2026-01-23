@@ -7,6 +7,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 from collections import deque
+import requests
 
 import rclpy
 from rclpy.node import Node
@@ -604,6 +605,19 @@ class DialogNode(Node):
         else:
             log("[DIALOG] 🚑 EMERGENCY")
         self.say("Emergency. I am calling for help now.")
+
+        try:
+            url = "https://bix.ovh/add_log"
+            params = {
+                "sender": "state",
+                "type": 3,
+                "msg": "emergency"
+            }
+            r = requests.get(url, params=params, timeout=3.0)
+            log(f"[DIALOG] Remote log sent (status={r.status_code})")
+        except Exception as e:
+            log(f"[DIALOG] Remote log failed: {e}")
+
         self._stop_session()
 
     # ---------------- Helpers: questions / timeouts ----------------
@@ -642,6 +656,19 @@ class DialogNode(Node):
             with self._lock:
                 self._step = self.STEP_DONE
             self.say("Thank you. You seem conscious and oriented.")
+
+            try:
+                url = "https://bix.ovh/add_log"
+                params = {
+                    "sender": "state",
+                    "type": 3,
+                    "msg": "noemergency"
+                }
+                r = requests.get(url, params=params, timeout=3.0)
+                log(f"[DIALOG] Remote log sent (status={r.status_code})")
+            except Exception as e:
+                log(f"[DIALOG] Remote log failed: {e}")
+
             self._stop_session()
 
     def _handle_invalid_or_timeout(self, what=""):
